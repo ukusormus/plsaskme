@@ -4,10 +4,12 @@
 // Number of cards below the question card
 // const cardN = 5;
 
-// Get random integer between min (inclusive) and max (inclusive)
-const random = (min, max) => {
-    return Math.floor(Math.random() * (max - min) + min);
-}
+// // Get random integer between min (inclusive) and max (inclusive)
+// const random = (min, max) => {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+
+import { random } from "./helpers.js";
 
 // A pallette.
 const pallette1 = [

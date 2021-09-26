@@ -1,4 +1,6 @@
 /* Helper functions */
+export { asteriskToBold, random };
+
 /** Converts words wrapped into asterisks into words wrapped into HTML "strong" tags */
 const asteriskToBold = (str) => {
     let result = Array.from(str);
@@ -13,6 +15,11 @@ const asteriskToBold = (str) => {
     return result.join("");
 }
 
+/**  Get random integer between min (inclusive) and max (inclusive) */
+const random = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 // TODO: move to helpers.js
 class Spicy {
     static spicy = false;
@@ -21,6 +28,10 @@ class Spicy {
         return this.spicy;
     }
 }
+
+// const isSpicy = () => {
+//     return document.querySelector("#spicy").checked;
+// }
 
 
 // TODO: classes are not hoisted like functions (moved to top during runtime), move to different
