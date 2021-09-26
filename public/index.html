@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://convers.ee">
+
+    <meta name="author" content="Uku Sõrmus">
+    <meta name="keywords"
+        content="fun questions, party, icebreaker, conversation starter, random questions, questions generator, spicy questions, naughty questions, Q&A, party starter, convers.ee, convo starter">
+    <meta name="description" content="Fun (and spicy) random questions - never have a boring party again! 💬🎉">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="switch.css">
+
+    <title>Fun & Spicy Random Questions - convers.ee</title>
+
+    <!-- TODO: custom favicon & https://realfavicongenerator.net/ -->
+
+    <!-- Firebase -->
+    <script defer type="module" src="app.js"></script>
+
+    <!-- Questions -->
+    <script defer type="module" src="questions.js"></script>
+
+    <!-- Animations for cardstack behind main question card-->
+    <script defer src="cardstack.js"></script>
+
+    <script defer src="helpers.js"></script>
+
+
+</head>
+
+<body>
+    <nav id="nav">
+        <div id="logo">
+            <h1>convers.ee</h1>
+        </div>
+        <div id="switches">
+            <div id="spicy-section">
+                <h4>Spicy</h4>
+                <input class="tgl tgl-skewed" id="spicy" type="checkbox" />
+                <label class="tgl-btn" data-tgl-off="OFF" data-tgl-on="ON🌶️" for="spicy"></label>
+            </div>
+
+            <div id="lang-section">
+                <h4>Language</h4>
+                <input class="tgl tgl-skewed" id="lang" type="checkbox" />
+                <label class="tgl-btn" data-tgl-off="🇬🇧" data-tgl-on="🇪🇪" for="lang"></label>
+            </div>
+        </div>
+        <svg id="hamburger" viewBox="0 0 100 80" width="40" height="40" fill="#FFF">
+            <rect width="100" height="14" rx="8"></rect>
+            <rect y="30" width="100" height="14" rx="8"></rect>
+            <rect y="60" width="100" height="14" rx="8"></rect>
+        </svg>
+    </nav>
+
+
+    <main>
+        <div class="cardstack"></div>
+        <div class="cardstack"></div>
+        <div class="cardstack"></div>
+        <div class="cardstack"></div>
+        <div class="cardstack"></div>
+
+        <div class="q-container">
+            <p class="q" id="current-q">Peaksid laskma endale kohe <strong>tätoveeringu</strong> teha. Mille teeksid
+                ja kuhu?</p>
+        </div>
+
+
+    </main>
+
+</body>
+
+</html>
