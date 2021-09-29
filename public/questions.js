@@ -1,7 +1,4 @@
-import { ref, get, child, query } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
-import { db } from "./app.js"
-// import { } from "./helpers.js"
-import { random } from "./helpers.js"
+import { random, asteriskToBold } from "./helpers.js"
 
 // Shortcuts to DOM elements
 const questionContainer = document.querySelector(".q-container");
@@ -9,73 +6,71 @@ const currentQuestionText = document.querySelector("#current-q");
 const spicySwitch = document.querySelector("#spicy");
 const langSwitch = document.querySelector("#lang");
 
-
-
-// Gets a reference to question with id 0 and current language
-let language = "en";
-
-// const currentQuestionRef = child(questionsRef, `${id}/${language}`);
-// console.log(currentQuestionRef)
-
-
-// Gets a reference to all questions
-const questionsRef = ref(db, "q");
-const lastQuestionID = 0; // TODO: select last element, get its id
-console.log(questionsRef);
-const spicyQuestionsRef = ref(db, "spicy-q");
-const lastSpicyQuestionID = 0; // TODO: select last element, get its id
-
-
-async function getNewRandQuestion(isSpicy = spicySwitch.checked, langSwitched = langSwitch.checked) {
-
-    // 1. Generate random index
-    const ref = isSpicy ? spicyQuestionsRef : questionsRef;
-    lang = langSwitched ? "en" : "et";
-
-    const randomIndex = random(0, 1).toString();
-
-
-    // 2. Check that it isn't in history
-
-    // 3. Get a question by that index
-    return await get(child(ref, randomIndex)).then((result) => {
-        if (result.exists()) {
-            return result.val()[randomIndex][lang];
-        }
-        else return "No data available"
-    }).catch((err) => {
-        console.error(err)
-        return "I'm sorry, a wild error has occured! Please try to refresh the page.";
-    });
-
-    // 4. Save that question to history
-
-    // 5. Return question text
-
-    // const allNSFW = query(ref(db, 'posts'), limitToLast(100));
-
+// Bilingual right now, may be updated in the future
+function currentLang() {
+    // Default, when page loaded for the first time, is English
+    return langSwitch.checked ? "et" : "en";
 }
 
-spicySwitch.addEventListener("click", (e) => {
-    console.log("spicySwitch.checked: " + spicySwitch.checked);
-});
+function isSpicy() {
+    // Default, when page loaded for the first time, is non-spicy
+    return spicySwitch.checked;
+}
 
+/** 
+ * Gets the question count - 1 for particular language and spiciness.
+ * 
+ * (Our "server-side" node script (q-counter.js) will add a file called
+ * /questions/lang(-spicy)/count
+ * every time it is ran, keeping count of questions count inside the folders)
+ * 
+ * Usage example: await getLastIndex("et", false) 
+ * */
+async function getLastQuestionIndex(lang, spicy) {
+    const url = `${document.location.origin}/questions/${spicy ? lang + "-spicy" : lang}/count`;
+    return parseInt(await (await fetch(url)).text()) - 1;
+}
 
-// Temp: new question w spacebar
-document.addEventListener('keyup', event => {
-    if (event.code === 'Space') {
-        currentQuestionText.innerText = val()
+let lastIndex = {
+    "et": await getLastQuestionIndex("et", false),
+    "et-spicy": await getLastQuestionIndex("et", true),
+    "en": await getLastQuestionIndex("en", false),
+    "en-spicy": await getLastQuestionIndex("en", true)
+}
+
+async function getNewRandQuestion() {
+    const lang = currentLang();
+    const spicy = isSpicy();
+
+    // 1. Generate random index (min & max inclusive)
+    const randomIndex = random(0, lastIndex);
+
+    // 2. Check that it isn't in history
+    // TODO
+
+    // 3. Get a question by that index
+    const url = `${document.location.origin}/questions/${spicy ? lang + "-spicy" : lang}/${randomIndex}`;
+    const question = (await fetch(url)).text()
+
+    // 4. Save that question to history
+    // TODO
+
+    // 5. Return question text
+    return asteriskToBold(question);
+}
+
+// New question with click/tap on question container (mousedown = fired the moment the button is initially pressed)
+questionContainer.addEventListener('mousedown', event => {
+    getNewRandQuestion().then((result) => {
+        currentQuestionText.textContent = result;
+    });
+}, false);
+
+// New question with spacebar
+document.addEventListener('keydown', event => {
+    if (event.code === "Space") {
+        getNewRandQuestion().then((result) => {
+            currentQuestionText.textContent = result;
+        });
     }
 });
-// Temp: new question w click
-questionContainer.addEventListener('click', event => {
-    getNewRandQuestion().then((result) => {
-        currentQuestionText.innerText = result;
-    });
-});
-
-// --- Each node of the JSON tree is a reference. ref(db, "questions/1")
-// Saving data - set(ref, value : unknown)
-// Reading data - get(query)
-// Updating data - update(ref, values : Object)
-// Removing data - remove(ref)

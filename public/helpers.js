@@ -20,20 +20,6 @@ const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// TODO: move to helpers.js
-class Spicy {
-    static spicy = false;
-
-    static isSpicy = () => {
-        return this.spicy;
-    }
-}
-
-// const isSpicy = () => {
-//     return document.querySelector("#spicy").checked;
-// }
-
-
 // TODO: classes are not hoisted like functions (moved to top during runtime), move to different
 class QuestionHistory {
     /** TODO */
