@@ -12,46 +12,50 @@ const asteriskToBold = (str) => {
         }
     }
 
-    // This gets inserted into innerHTML, which could theoretically lead to XSS
+    // This gets inserted into innerHTML, which could /theoretically/ lead to XSS
+    // Since we are the ones controlling the storage (pre-sanitizing questions), there should be no problem
 
     return result.join("");
 }
 
-/**  Get random integer between min (inclusive) and max (inclusive) */
+/** Get random integer between min (inclusive) and max (inclusive) */
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// TODO: classes are not hoisted like functions (moved to top during runtime), move to different
+/** Save the history of different language & spiciness questions to Local Storage */
 class QuestionHistory {
     constructor(lang, spicy) {
         this.collection = spicy ? lang + "-spicy" : lang;
-    }
 
-    /** TODO */
-    insert = (id) => {
-        if (localStorage.getItem(this.collection) !== null) {
-            localStorage.setItem(this.collection, localStorage.getItem(this.collection) + "," + id);
-        } else {
-            // First time
-            localStorage.setItem(this.collection, id)
+        if (!localStorage.getItem(this.collection)) {
+            localStorage.setItem(this.collection, "");
         }
-        console.log(`Inserted ${id} into local storage (collection: ${this.collection})`);
     }
 
-    /** TODO */
+    insert = (id) => {
+        localStorage.setItem(this.collection, localStorage.getItem(this.collection) + "," + id);
+
+        console.log(`--- Inserted ${id} into local storage (collection: ${this.collection})`);
+    }
+
+    /** Lists all question id-s as an array */
     list = () => {
-        return localStorage[this.collection].split(",");
+        return localStorage[this.collection].split(",").slice(1);
     }
 
-    /** TODO */
+    length = () => {
+        return this.list().length;
+    }
+
     clear = () => {
         localStorage.removeItem(this.collection);
-        console.log(`Cleared collection (${this.collection}) from local storage`);
+        localStorage.setItem(this.collection, "");
+        console.log(`--- Cleared history from local storage (${this.collection})`);
     }
 
-    /** TODO: Returns boolean value whether question is found in local storage history */
+    /** Returns boolean value whether question is found in local storage history */
     contains = (id) => {
-        return localStorage[this.collection].split(",").includes(id);
+        return this.list().includes(id.toString());
     }
 }

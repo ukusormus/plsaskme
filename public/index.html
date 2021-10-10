@@ -11,27 +11,24 @@
 
     <meta name="author" content="Uku Sõrmus">
     <meta name="keywords"
-        content="fun questions, party, icebreaker, conversation starter, random questions, questions generator, spicy questions, naughty questions, Q&A, party starter, convers.ee, convo starter">
+        content="fun questions, party, icebreaker, conversation starter, random questions, questions generator, spicy questions, naughty questions, random funny questions, for party, for friends, for couples, Q&A, party starter, convers.ee, convo starter">
     <meta name="description" content="Fun (and spicy) random questions - never have a boring party again! 💬🎉">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="switch.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./switch.css">
 
     <title>Fun & Spicy Random Questions - convers.ee</title>
 
     <!-- TODO: custom favicon & https://realfavicongenerator.net/ -->
 
-    <!-- Firebase -->
-    <script defer type="module" src="app.js"></script>
+    <!-- Helper functions -->
+    <script defer type="module" src="./helpers.js"></script>
 
-    <!-- Questions -->
-    <script defer type="module" src="questions.js"></script>
+    <!-- Displaying & fetching questions -->
+    <script defer type="module" src="./questions.js"></script>
 
     <!-- Animations for cardstack behind main question card-->
-    <script defer type="module" src="cardstack.js"></script>
-
-    <script defer type="module" src="helpers.js"></script>
-
+    <script defer type="module" src="./cardstack.js"></script>
 
 </head>
 
@@ -69,8 +66,7 @@
         <div class="cardstack"></div>
 
         <div class="q-container">
-            <p class="q" id="current-q">Peaksid laskma endale kohe <strong>tätoveeringu</strong> teha. Mille teeksid
-                ja kuhu?</p>
+            <p class="q" id="current-q"><strong>Click me</strong> for a new question.</p>
         </div>
 
 

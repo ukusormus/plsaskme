@@ -18,14 +18,14 @@ function isSpicy() {
 }
 
 // Returns "en", "et-spicy", depending on current language and spiciness
-function langSpicy() {
-    return isSpicy() ? currentLang() + "-spicy" : currentLang();
+function langSpicy(lang = currentLang(), spicy = isSpicy()) {
+    return spicy ? lang + "-spicy" : lang;
 }
 
 let qHistory = {
     "et": new QuestionHistory("et", false),
     "et-spicy": new QuestionHistory("et", true),
-    "et": new QuestionHistory("et", false),
+    "en": new QuestionHistory("en", false),
     "en-spicy": new QuestionHistory("en", true)
 }
 
@@ -39,7 +39,7 @@ let qHistory = {
  * Usage example: await getLastIndex("et", false) 
  * */
 async function getLastQuestionIndex(lang, spicy) {
-    const url = `${document.location.origin}/questions/${langSpicy()}/count`;
+    const url = `${document.location.origin}/questions/${langSpicy(lang, spicy)}/count`;
     return parseInt(await (await fetch(url)).text()) - 1;
 }
 
@@ -54,19 +54,29 @@ let lastIndex = {
 async function getNewRandQuestion() {
 
     // 1. Generate random index (min & max inclusive)
-    const randomIndex = random(0, lastIndex[langSpicy()]);
+    let randomIndex = random(0, lastIndex[langSpicy()]);
 
-    // 2. Check that it isn't in history
-    // TODO
-    // if (qHistory[langSpicy()].contains(randomIndex)) { console.log("fu, same q") }
+    // 2.a Reset history if all questions have been already shown (avoids infinite while loop)
+    if (qHistory[langSpicy()].length() >= (lastIndex[langSpicy()] + 1)) {
+
+        // Will show the first question, so no chance of "buggy" UX, except when there's only one question
+        randomIndex = qHistory[langSpicy()].list()[0];
+
+        qHistory[langSpicy()].clear();
+    } 
+    // 2.b Else, generate new random index until one found that isn't in history
+    else while (qHistory[langSpicy()].contains(randomIndex)) {
+        randomIndex = random(0, lastIndex[langSpicy()]);
+    }
 
     // 3. Get a question by that index
     const url = `${document.location.origin}/questions/${langSpicy()}/${randomIndex}`;
     const question = (await fetch(url)).text()
 
-    console.log(question)
+    console.log(question);
+
     // 4. Save that question to history
-    // TODO
+    qHistory[langSpicy()].insert(randomIndex);
 
     // 5. Return question text
     return question // asteriskToBold(question);

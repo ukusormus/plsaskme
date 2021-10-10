@@ -1,7 +1,7 @@
 :root {
     --transition-time: 1.7s;  /* Controlled in cardstack.js */ 
 
-    --mobile-max-width: 485px;
+    /* --mobile-max-width: 485px; */
 }
 
 /* Some defaults */
@@ -51,7 +51,7 @@ nav {
 }
 
 /* Make navbar into hamburger menu on mobile */
-@media only screen and (max-width: var(--mobile-max-width)) {
+@media only screen and (max-width: 485px) {
     #switches {
         display: none;
     }
@@ -60,7 +60,7 @@ nav {
     }
 }
 /* Make hamburger menu into navbar on bigger devices than mobile */
-@media only screen and (min-width: calc(var(--mobile-max-width) + 1px)) {
+@media only screen and (min-width: 486px) {
     #switches {
         display: visible;
     }
@@ -150,7 +150,7 @@ nav {
 }
 
 /* For mobile: move cards downwards to have room for nav */
-@media only screen and (max-width: --mobile-max-width) {
+@media only screen and (max-width: 485px) {
     .q-container, .cardstack {
         transform: translate(-50%, -40%);
     }
