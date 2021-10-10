@@ -8,11 +8,11 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
 
 html {
     overflow: hidden;
-    width: 120%;
+    width: 100%;
 }
 
 body {
-    height: 100%;
+    min-height: 120%;
     position: fixed;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
