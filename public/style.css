@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    height: 1+0%;
+    height: 100%;
     position: fixed;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
