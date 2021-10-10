@@ -1,13 +1,7 @@
 /* Cardstack below the question card */
 
-
 // Number of cards below the question card
 // const cardN = 5;
-
-// // Get random integer between min (inclusive) and max (inclusive)
-// const random = (min, max) => {
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-// }
 
 import { random } from "./helpers.js";
 
@@ -23,7 +17,7 @@ const pallette1 = [
 /** Get a random color from a pallette array and pop it off */
 const randomColorFromPallette = (pallette) => {
     if (!pallette.length) {
-        console.error("Array empty!")
+        console.error("Color pallette array empty (or not long enough)!")
         return "#000"; // black
     }
 

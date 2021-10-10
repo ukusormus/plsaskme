@@ -106,8 +106,6 @@ nav {
 .q-container {
     background-color: #FFF;
 
-    font-size: 3em;
-
     /* Put the question container in front of everything */
     z-index: 99;
 
@@ -121,6 +119,7 @@ nav {
     user-select: none;
 
     /* Container size won't change if text overflows */
+    /* max-height:  */
     overflow: hidden;
 
     /* Realistic shadows */
@@ -140,9 +139,9 @@ nav {
     transition: all var(--transition-time) ease-out, background-color 1s, box-shadow 2s;
 }
 
-.cardstack:last-child {
+.cardstack:first-child {
     box-shadow: 
-    0 -33px 1px hsl(0deg 0% 0% / 1),
+    1 1px 25px hsl(0deg 0% 0% / 1),
     0 2px 10px hsl(0deg 0% 0% / 0.2),
     1px 3px 10px hsl(0deg 0% 0% / 0.2),
     1px -1px 10px hsl(0deg 0% 0% / 0.2);
@@ -166,7 +165,7 @@ nav {
 /* For mobile: move cards downwards to have room for nav */
 @media only screen and (max-width: 485px) {
     .q-container, .cardstack {
-        transform: translate(-50%, -40%);
+        margin-top: 1em;
     }
 }
 /* Portrait */
