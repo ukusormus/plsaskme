@@ -28,7 +28,7 @@ body {
     -ms-touch-action: none; */
 
     min-height: 120vh;
-    /* min-height: -webkit-fill-available; */
+    min-height: -webkit-fill-available;
 }
 
 nav {
