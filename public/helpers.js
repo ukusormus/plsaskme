@@ -12,6 +12,8 @@ const asteriskToBold = (str) => {
         }
     }
 
+    // This gets inserted into innerHTML, which could theoretically lead to XSS
+
     return result.join("");
 }
 
