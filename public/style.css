@@ -19,7 +19,7 @@ body {
 }
 
 body {
-    background: rgb(221, 6, 6);
+    background: rgb(255, 255, 255);
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     
     /* Disable scrolling */
@@ -105,6 +105,8 @@ nav {
 
 .q-container {
     background-color: #FFF;
+
+    font-size: 3em;
 
     /* Put the question container in front of everything */
     z-index: 99;
