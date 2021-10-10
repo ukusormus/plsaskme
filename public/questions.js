@@ -85,7 +85,7 @@ async function getNewRandQuestion() {
 // New question with click/tap on question container (mousedown = fired the moment the button is initially pressed)
 questionContainer.addEventListener('mousedown', event => {
     getNewRandQuestion().then((result) => {
-        console.log("result mouse: " + result)
+        console.log("result mouse / tap: " + result)
         currentQuestionText.innerHTML = asteriskToBold(result);
     });
 }, false);
