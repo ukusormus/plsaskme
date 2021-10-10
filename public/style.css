@@ -11,12 +11,12 @@ html {
     width: 100%;
 }
 
-body {
+/* body {
     height: 100%;
     position: fixed;
-    overflow-y: hidden;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-}
+} */
 
 body {
     background: #FFF;
@@ -44,7 +44,7 @@ nav {
     top: 0px;
     left: 0px;
 
-    background-color: rgba(0, 0, 0, 0.137);
+    background-color: rgba(0, 0, 0, 0.075);
     color: rgb(0, 0, 0);
 
     padding-left: 1em;
