@@ -12,9 +12,9 @@ html {
 }
 
 body {
-    max-height: 90%;
+    height: 100%;
     position: fixed;
-    overflow-y: scroll;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
