@@ -32,6 +32,10 @@ body {
     /* min-height: -webkit-fill-available; */
 }
 
+footer {
+    background: red;
+}
+
 nav {
     z-index: 100;
     display: inline-flex;
