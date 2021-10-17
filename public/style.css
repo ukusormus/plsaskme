@@ -192,3 +192,7 @@ nav {
 .q-container, .cardstack {
     display: none;
 } */
+
+#current-q {
+    transition: opacity 1s;
+}

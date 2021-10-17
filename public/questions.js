@@ -63,7 +63,7 @@ async function getNewRandQuestion() {
         randomIndex = qHistory[langSpicy()].list()[0];
 
         qHistory[langSpicy()].clear();
-    } 
+    }
     // 2.b Else, generate new random index until one found that isn't in history
     else while (qHistory[langSpicy()].contains(randomIndex)) {
         randomIndex = random(0, lastIndex[langSpicy()]);
