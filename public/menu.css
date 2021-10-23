@@ -1,5 +1,6 @@
 #menu {
     z-index: 100;  /* Bring menu in front of everything*/
+    pointer-events: none;  /* Click-through if overlays cards */
 
     display: inline-flex;
     justify-content: space-between;
