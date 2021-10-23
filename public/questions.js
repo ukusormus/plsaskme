@@ -88,7 +88,7 @@ questionContainer.addEventListener('mousedown', event => {
         console.log("result mouse / tap: " + result)
         currentQuestionText.innerHTML = asteriskToBold(result);
     });
-}, false);
+});
 
 // New question with spacebar
 document.addEventListener('keydown', event => {
@@ -99,3 +99,20 @@ document.addEventListener('keydown', event => {
         });
     }
 });
+
+
+// async function getNewRandQuestion_local() {
+
+// }
+
+setInterval(() => {
+    // 1. If there's less than 5 questions in local storage
+    // if (langSpicy)
+
+    // 2. Add missing question count to local storage
+
+    // console.log("smth")
+    // getNewRandQuestion().then((result) => {
+    //     console.log(result)
+    // })  
+}, 1500);
