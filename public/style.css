@@ -1,99 +1,38 @@
 :root {
     --transition-time: 1.7s;  /* Controlled in cardstack.js */ 
-    /* --mobile-max-width: 485px; */
+    font-size: 16px;
 }
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
-/* html {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-} */
-
-/* body {
-    height: 100%;
-    position: fixed;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-} */
-
-/* body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-}
 html {
- height: -webkit-fill-available;
-} */
+    /* Users can't select text (won't interrupt the app-y feel) */
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+
+    /* Users cam't zoom on mobile */
+    touch-action: pan-y;
+    -ms-touch-action: pan-y;
+
+    text-decoration: none;
+}
+
+html {
+    overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
+}
 
 body {
     background: #0EE;
+    background: #000;
+    background: white;
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    
-    /* Disable scrolling */
-    /* overflow: hidden; */
-    /* touch-action: none;
-    -ms-touch-action: none; */
-
-    /* min-height: 120vh; */
-    /* min-height: -webkit-fill-available; */
 }
-
-footer {
-    background: red;
-}
-
-nav {
-    z-index: 100;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-
-    position: fixed;
-    width: 100vw;
-    height: 4em;
-
-    top: 0px;
-    left: 0px;
-
-    background-color: rgba(0, 0, 0, 0.075);
-    color: rgb(0, 0, 0);
-
-    padding-left: 1em;
-    padding-right: 1em;
-    /* border: solid red 1px; */
-}
-
-#spicy-section, #lang-section, #switches {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#lang-section {
-    margin-left: 2em;
-}
-
-/* Make navbar into hamburger menu on mobile */
-@media only screen and (max-width: 485px) {
-    #switches {
-        display: none;
-    }
-    #hamburger {
-        display: visible;
-    }
-}
-/* Make hamburger menu into navbar on bigger devices than mobile */
-@media only screen and (min-width: 486px) {
-    #switches {
-        display: visible;
-    }
-    #hamburger {
-        display: none;
-    }
-}
-
 
 .q-container, .cardstack {
     /* Center container */
@@ -102,15 +41,14 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    /* Poker card aspect ratio */
+    /* Poker card aspect ratio: 2.5 / 3.5 */
     width: 70vw;
-    aspect-ratio: 2.5 / 3.5;
-
+    height: 98vw; 
+    
+    /* Size for text */ 
+    font-size: 2em;
     /* Leave room for text */
     padding: 1em;
-
-    /* Size for text (changes container size too) */ 
-    font-size: 2em;
 
     /* Give cards round corners */
     border-radius: 2.5%;
@@ -119,20 +57,16 @@ nav {
 .q-container {
     background-color: #FFF;
 
-    /* Put the question container in front of everything */
+    /* Put the question container in front of everything, apart from menu */
     z-index: 99;
 
-    text-align: left;
     /* Center textbox inside card */
     display: flex;
     align-items: center;
     justify-content: center;
 
-    /* User can't select text (won't interrupt the "app-y" feel, esp. on phones) */
-    user-select: none;
-
+    text-align: left;
     /* Container size won't change if text overflows */
-    /* max-height:  */
     overflow: hidden;
 
     /* Realistic shadows */
@@ -147,8 +81,6 @@ nav {
 }
 
 .cardstack {
-    transform-origin: center center;
-
     transition: all var(--transition-time) ease-out, background-color 1s, box-shadow 2s;
 }
 
@@ -160,39 +92,24 @@ nav {
     1px -1px 10px hsl(0deg 0% 0% / 0.2);
 }
 
-/* Landscape */
+/* Landscape, both mobile & desktop: rotate question container and cards */
 @media (orientation: landscape) {
     .q-container, .cardstack {
-        /* max-height: 70vh;
-        aspect-ratio: 3.5 / 2.5;  */
+        height: 75vh;
+        width: 105vh;
     }
 }
 
-/* For desktop */
+/* Desktop: make font larger */
 @media only screen and (min-width: 768px) {
     .q-container {
-        font-size: 3em;
+        font-size: 6em;
     }
 }
 
-/* For mobile: move cards downwards to have room for nav */
+/* Mbile: move cards downwards to have room for nav */
 @media only screen and (max-width: 485px) {
     .q-container, .cardstack {
-        margin-top: 1em;
+        margin-top: 0.5em;
     }
-}
-/* Portrait */
-/* @media (orientation: portrait) {
-    .q-container, .cardstack {
-        width: 78vw;
-        aspect-ratio: 2.5 / 3.5; 
-    }
-} */
-/* 
-.q-container, .cardstack {
-    display: none;
-} */
-
-#current-q {
-    transition: opacity 1s;
 }
