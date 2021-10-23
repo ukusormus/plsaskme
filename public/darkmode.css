@@ -1,0 +1,37 @@
+body.dark {
+    background: #202225;
+    background: radial-gradient(#2F3136 75%, #202225);
+    color: white;
+}
+
+
+/* Question and cardstack */
+
+body.dark .q-container {
+    background: #36393F;
+}
+
+body.dark .cardstack {
+    filter: brightness(0.8) contrast(0.9);
+}
+
+
+/* Menu */
+
+body.dark #menu .menu-trigger span,
+body.dark #menu .menu-trigger span:before,
+body.dark #menu .menu-trigger span:after  {
+    background: white;
+}
+
+body.dark #menu .menu-trigger.is-open span {
+    background: transparent;
+}
+
+body.dark #menu h4 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark #menu .menu-items.is-open {
+    background: #202225F5;
+}
