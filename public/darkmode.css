@@ -35,3 +35,8 @@ body.dark #menu h4 {
 body.dark #menu .menu-items.is-open {
     background: #202225F5;
 }
+
+body.dark #menu .tgl-skewed:checked+.tgl-btn {
+    background: #59d16b;
+    filter: grayscale(30%);
+}

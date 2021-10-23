@@ -1,14 +1,14 @@
 #menu {
     z-index: 100;  /* Bring menu in front of everything*/
-    pointer-events: none;  /* Click-through if overlays cards */
 
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
 
     position: fixed;
-    width: 100vw;
+    
     height: 100%;
+    width: min-content;
 
     top: 0px;
     left: 0px;
@@ -20,6 +20,7 @@
 @media only screen and (max-width: 666px) {
     #menu {
         height: 4em;
+        width: 100vw;
     }
 }
 
