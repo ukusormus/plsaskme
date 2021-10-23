@@ -28,7 +28,7 @@ h4 {
 .tgl+.tgl-btn:before {
 	position: relative;
 	display: block;
-	content: "aa";
+	content: "";
 	width: 50%;
 	height: 100%;
 }
