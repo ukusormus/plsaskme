@@ -22,15 +22,7 @@ function langSpicy(lang = currentLang(), spicy = isSpicy()) {
     return spicy ? lang + "-spicy" : lang;
 }
 
-let qHistory = {
-    "et": new QuestionHistory("et", false),
-    "et-spicy": new QuestionHistory("et", true),
-    "en": new QuestionHistory("en", false),
-    "en-spicy": new QuestionHistory("en", true)
-}
-
-/** 
- * Gets last question's index for particular language and spiciness.
+/** Gets last question's index for particular language and spiciness.
  * 
  * (Our "server-side" node script (q-counter.js) will add a file called
  * /questions/lang(-spicy)/count
@@ -38,21 +30,53 @@ let qHistory = {
  * 
  * Usage example: await getLastIndex("et", false) 
  * */
-async function getLastQuestionIndex(lang, spicy) {
+ async function getLastQuestionIndex(lang, spicy) {
     const url = `${document.location.origin}/questions/${langSpicy(lang, spicy)}/count`;
     return parseInt(await (await fetch(url)).text()) - 1;
 }
 
-// Save last indexes while loading page (these won't update often, no need to call every question)
+// Get last indexes
 let lastIndex = {
     "et": await getLastQuestionIndex("et", false),
     "et-spicy": await getLastQuestionIndex("et", true),
     "en": await getLastQuestionIndex("en", false),
     "en-spicy": await getLastQuestionIndex("en", true)
 }
+// Question history (in local storage)
+let qHistory = {
+    "et": new QuestionHistory("et", false),
+    "et-spicy": new QuestionHistory("et", true),
+    "en": new QuestionHistory("en", false),
+    "en-spicy": new QuestionHistory("en", true)
+}
 
-/**
- * @returns A random question that isn't in history
+// // Pool of questions for future display (in local storage; for smoother switch)
+// let qPool = {
+//     "pool-et": new QuestionHistory("pool-et", false),
+//     "pool-et-spicy": new QuestionHistory("pool-et", true),
+//     "pool-en": new QuestionHistory("pool-en", false),
+//     "pool-en-spicy": new QuestionHistory("pool-en", true),
+// }
+
+let nextQuestions = [];
+
+setInterval(() => {
+    if (nextQuestions.length < 5) {
+
+        
+    }
+}, 2000);
+
+/*
+1. Every 2 seconds, check how many questions (x) in qPool for current langSpicy
+2. If x < 5 (less than five) questions in qPool...
+3. Get 5-x random indexes that aren't in history (if lastIndex[langSpicy()] is less than 5)
+4. Fetch corresponding questions
+5. 
+6. 
+*/
+
+/** @returns A random question that isn't in history
  */
 async function getNewRandQuestion() {
 

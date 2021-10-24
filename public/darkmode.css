@@ -1,9 +1,7 @@
 body.dark {
-    background: #202225;
     background: radial-gradient(#2F3136 75%, #202225);
     color: white;
 }
-
 
 /* Question and cardstack */
 
