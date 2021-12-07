@@ -94,14 +94,14 @@ questionContainer.addEventListener('mousedown', event => {
 });
 
 // New question with spacebar
-document.addEventListener('keydown', event => {
-    if (event.code === "Space") {
-        getNewRandQuestion().then((result) => {
-            console.log("result keydown: " + result)
-            currentQuestionText.innerHTML = asteriskToBold(result);
-        });
-    }
-});
+// document.addEventListener('keydown', event => {
+//     if (event.code === "Space") {
+//         getNewRandQuestion().then((result) => {
+//             console.log("result keydown: " + result)
+//             currentQuestionText.innerHTML = asteriskToBold(result);
+//         });
+//     }
+// });
 
 
 // async function getNewRandQuestion_local() {
@@ -113,7 +113,7 @@ setInterval(() => {
     // if (langSpicy)
 
     // 2. Add missing question count to local storage
-
+    
     // console.log("smth")
     // getNewRandQuestion().then((result) => {
     //     console.log(result)

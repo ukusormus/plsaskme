@@ -30,7 +30,7 @@ function langSpicy(lang = currentLang(), spicy = isSpicy()) {
  * 
  * Usage example: await getLastIndex("et", false) 
  * */
- async function getLastQuestionIndex(lang, spicy) {
+async function getLastQuestionIndex(lang, spicy) {
     const url = `${document.location.origin}/questions/${langSpicy(lang, spicy)}/count`;
     return parseInt(await (await fetch(url)).text()) - 1;
 }
@@ -58,16 +58,34 @@ let qHistory = {
 //     "pool-en-spicy": new QuestionHistory("pool-en", true),
 // }
 
-let nextQuestions = [];
+const poolSize = 5;
+let nextQuestionsPool = [];
 
 setInterval(() => {
-    if (nextQuestions.length < 5) {
 
-        
+    if (nextQuestionsPool.length < poolSize) {  /* Less than pool size of questions in pool left */
+
+        const alreadyAskedCount = qHistory[langSpicy()].length;
+        const questionsInDB = lastIndex[langSpicy()] + 1;
+        const yetToAsk = questionsInDB - alreadyAskedCount;
+
+        let newQuestionsCount = poolSize;
+
+        if (yetToAsk >= 1) {  /* Questions DB depleted, clear history */
+            qHistory[langSpicy()].clear();
+        }
+        else if (yetToAsk < poolSize) {  /* Left less than poolsize in DB */
+            newQuestionsCount = yetToAsk;
+        }
+
+        for (let i = 0; i < newQuestionsCount; i++) {
+
+        }
+
     }
 }, 2000);
 
-/*
+/* ... NB! Probably should fetch 5 questions upfront and then fetch 1 question w every new cardpull
 1. Every 2 seconds, check how many questions (x) in qPool for current langSpicy
 2. If x < 5 (less than five) questions in qPool...
 3. Get 5-x random indexes that aren't in history (if lastIndex[langSpicy()] is less than 5)
