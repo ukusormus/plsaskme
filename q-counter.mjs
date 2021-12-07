@@ -1,5 +1,6 @@
 /**
- * @fileoverview Update the count files for each directory in questions.
+ * @fileoverview Update the "count" file for each question directory in public/questions/.
+ * @usage node q-counter.mjs
  */
 
 /* Requires */

@@ -12,5 +12,8 @@
     "autoprefixer": "^10.3.5",
     "postcss": "^8.3.8",
     "postcss-media-variables": "^2.0.1"
+  },
+  "dependencies": {
+    "n-readlines": "^1.0.1"
   }
 }
