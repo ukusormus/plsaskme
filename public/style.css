@@ -44,7 +44,7 @@ body {
     height: 98vw; 
     
     /* Size for text */ 
-    font-size: 1.9em;
+    /* font-size: 1.9em; */
     /* Leave room for text */
     padding: 1em;
 
@@ -82,6 +82,10 @@ body {
     transition: all var(--transition-time) ease-out, background-color 1s, box-shadow 2s;
 }
 
+#current-q {
+    font-size: calc(3vw + 3vh);
+}
+
 .cardstack:first-child {
     box-shadow: 
     1 1px 25px hsl(0deg 0% 0% / 1),
@@ -99,11 +103,11 @@ body {
 }
 
 /* Desktop: make font larger */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .q-container {
         font-size: 8vw;
     }
-}
+} */
 
 /* Mobile: move cards downwards to have room for nav */
 @media only screen and (max-width: 485px) {
