@@ -44,7 +44,7 @@ body {
     height: 98vw; 
     
     /* Size for text */ 
-    font-size: 2em;
+    font-size: 1.9em;
     /* Leave room for text */
     padding: 1em;
 
@@ -101,7 +101,7 @@ body {
 /* Desktop: make font larger */
 @media only screen and (min-width: 768px) {
     .q-container {
-        font-size: 6em;
+        font-size: 8vw;
     }
 }
 
