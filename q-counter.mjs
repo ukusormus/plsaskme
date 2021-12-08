@@ -8,7 +8,7 @@ import { promises, readdir, stat as _stat, writeFile, lstatSync } from 'fs';
 
 // The directory this script is ran from
 const currentDir = process.env.PWD;
-console.log("--- Starting q-counter.js in " + currentDir);
+console.log("--- Starting q-counter.mjs in " + currentDir);
 
 try {
     await promises.access(currentDir + "/public");
