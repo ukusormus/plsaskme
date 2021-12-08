@@ -8,6 +8,9 @@ Fun (and spicy) random questions for friends, couples (or even yourself).
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/conversee/deploys)
 
+todo: https://github.com/othneildrew/Best-README-Template (add images etc)
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
+
 ## Features
 - Beautiful & functional, mobile-first
 - Two languages (English, Estonian)
