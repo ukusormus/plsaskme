@@ -11,6 +11,8 @@ Fun (and spicy) random questions for friends, couples (or even yourself).
 todo: https://github.com/othneildrew/Best-README-Template (add images etc)
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
 
+https://cs50.harvard.edu/x/2021/project/
+
 ## Features
 - Beautiful & functional, mobile-first
 - Two languages (English, Estonian)
