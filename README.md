@@ -3,7 +3,10 @@
 ## 💬 A random question generator for your next party 
 
 Fun (and spicy) random questions for friends, couples (or even yourself).
+
 *Final project for Harvard's MOOC* "__[CS50x]__"*, 2020-21.*
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/conversee/deploys)
 
 ## Features
 - Beautiful & functional, mobile-first
