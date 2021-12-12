@@ -27,15 +27,17 @@
     <!-- TODO: custom favicon & https://realfavicongenerator.net/ -->
 
     <!-- Helper functions -->
-    <script type="module" src="./helpers.js"></script>
+    <!-- <script type="module" src="./helpers.js"></script> -->
 
-    <!-- Displaying & fetching questions -->
+    <!-- Displaying & fetching questions --> <!-- "module" needed for top-level-await. -->
     <script type="module" src="./questions.js"></script>
 
     <!-- Animations for cardstack behind main question card-->
-    <script type="module" src="./cardstack.js"></script>
+    <script defer src="./cardstack.js"></script>
 
-    <script defer src="./menu.js"></script>
+    <script defer src="./menu_trigger.js"></script>
+    <script defer src="./darkmode.js"></script>
+    <script defer src="./user_lang.js"></script>
 
 </head>
 
@@ -53,7 +55,7 @@
                 <li id="spicy-section">
                     <h4>Spicy</h4>
                     <input class="tgl tgl-skewed" id="spicy" type="checkbox" />
-                    <label class="tgl-btn" data-tgl-off="OFF" data-tgl-on="ON🌶️" for="spicy"></label>
+                    <label class="tgl-btn" data-tgl-off="😇" data-tgl-on="🌶️" for="spicy"></label>
                 </li>
                 <li id="lang-section">
                     <h4>Language</h4>
@@ -81,7 +83,8 @@
         <div class="cardstack"></div>
 
         <div class="q-container">
-            <p id="current-q"><strong>Click me</strong> for a new question.</p>
+            <p id="current-q">...</p>
+            <!-- <p id="current-q"><strong>Click me</strong> for a new question.</p> -->
         </div>
 
 

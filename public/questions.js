@@ -1,4 +1,47 @@
-import { random, asteriskToBold, QuestionHistory } from "./helpers.js"
+// import { random, QuestionHistory } from "./helpers.js"
+/** Get random integer between min (inclusive) and max (inclusive) */
+const random = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+/** Save the history of different language & spiciness questions to Local Storage */
+class QuestionHistory {
+    constructor(lang, spicy) {
+        this.collection = spicy ? lang + "-spicy" : lang;
+
+        if (!localStorage.getItem(this.collection)) {
+            localStorage.setItem(this.collection, "");
+        }
+    }
+
+    insert = (id) => {
+        localStorage.setItem(this.collection, localStorage.getItem(this.collection) + "," + id);
+
+        console.log(`--- Inserted ${id} into local storage (collection: ${this.collection})`);
+    }
+
+    /** Lists all question id-s as an array */
+    list = () => {
+        return localStorage[this.collection].split(",").slice(1);
+    }
+
+    length = () => {
+        return this.list().length;
+    }
+
+    clear = () => {
+        localStorage.removeItem(this.collection);
+        localStorage.setItem(this.collection, "");
+        console.log(`--- Cleared history from local storage (${this.collection})`);
+    }
+
+    /** Returns boolean value whether question is found in local storage history */
+    contains = (id) => {
+        return this.list().includes(id.toString());
+    }
+}
+// ----
+
 
 // Shortcuts to DOM elements
 const questionContainer = document.querySelector(".q-container");
@@ -51,6 +94,8 @@ let lastIndex = {
     "en-spicy": await getLastQuestionIndex("en", true)
 }
 
+
+
 /**
  * @returns A random question that isn't in history
  */
@@ -85,11 +130,12 @@ async function getNewRandQuestion() {
     return question // asteriskToBold(question);
 }
 
+console.log("this should come after");
 // New question with click/tap on question container (mousedown = fired the moment the button is initially pressed)
-questionContainer.addEventListener('mousedown', event => {
+questionContainer.addEventListener('click', event => {
     getNewRandQuestion().then((result) => {
         console.log("result mouse / tap: " + result)
-        currentQuestionText.innerHTML = asteriskToBold(result);
+        currentQuestionText.innerHTML = result;
     });
 });
 
@@ -113,7 +159,7 @@ setInterval(() => {
     // if (langSpicy)
 
     // 2. Add missing question count to local storage
-    
+
     // console.log("smth")
     // getNewRandQuestion().then((result) => {
     //     console.log(result)

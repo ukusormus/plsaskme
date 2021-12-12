@@ -1,22 +1,22 @@
 /* Helper functions */
-export { asteriskToBold, random, QuestionHistory };
+export { random, QuestionHistory };
 
 /** Converts words wrapped into asterisks into words wrapped into HTML "strong" tags */
-const asteriskToBold = (str) => {
-    let result = Array.from(str);
-    let first = false;
-    for (let i = 0; i < result.length; i++) {
-        if (result[i] === "*") {
-            first = !first;
-            result[i] = first ? "<strong>" : "</strong>";
-        }
-    }
+// const asteriskToBold = (str) => {
+//     let result = Array.from(str);
+//     let first = false;
+//     for (let i = 0; i < result.length; i++) {
+//         if (result[i] === "*") {
+//             first = !first;
+//             result[i] = first ? "<strong>" : "</strong>";
+//         }
+//     }
 
-    // This gets inserted into innerHTML, which could /theoretically/ lead to XSS
-    // Since we are the ones controlling the storage (pre-sanitizing questions), there should be no problem
+//     // This gets inserted into innerHTML, which could /theoretically/ lead to XSS
+//     // Since we are the ones controlling the storage (pre-sanitizing questions), there should be no problem
 
-    return result.join("");
-}
+//     return result.join("");
+// }
 
 /** Get random integer between min (inclusive) and max (inclusive) */
 const random = (min, max) => {
