@@ -30,10 +30,10 @@ Since I didn't want to pay for any hosting, this project is built on the premise
 - HTML/JS/CSS
 
 My local backend: 
-- Node.js scripts
+- Node.js script (using fs-extra)
 
 About some challenges I encountered:
-- different (mobile) browsers acting differently
+- different (mobile) browsers acting differently - responsive design
 - how to preload questions to avoid any visible stutter
 - efficient CSS animations
 - what is actually important
@@ -47,3 +47,4 @@ The way questions reach users:
 
 [convers.ee]: <https://convers.ee>
 [CS50x]: <https://cs50.harvard.edu/x/2021>
+[fs-extra]: <https://www.npmjs.com/package/fs-extra>
