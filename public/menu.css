@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* overflow-y: auto; */
+    
 }
 
 /* .menu-items {
@@ -113,18 +113,19 @@
     position: absolute;
     top: 60px;
     display: block;
-    height: 100vh;
+    height: 90vh;
     background: rgba(255, 255, 255, 0.95);
     text-align: left;
 }
 #menu .menu-items.is-open > ul {
-    position: absolute;
-    top: 50%;
+    position: sticky;
+    overflow-y: scroll;
+    /* top: 50%;
     width: 100%;
     padding-left: 1em;
     margin-top: -44px;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 }
 @media (min-width: 568px) {
     #menu .menu-items.is-open > ul {
