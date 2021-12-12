@@ -44,39 +44,47 @@ if (langSpicy === null) {
         })
         .then(function (payload) {
             if (payload.location.country.code = 'EE') {
-                langSpicy = localStorage["lang-spicy"] = "et";
-                // currentQ.textContent = dict.tapMe["et"];
+                localStorage["lang-spicy"] = "et";
+                currentQ.textContent = dict.tapMe["et"];
             } else {
-                langSpicy = localStorage["lang-spicy"] = "en";
-                // currentQ.textContent = dict.tapMe["en"];
+                localStorage["lang-spicy"] = "en";
+                currentQ.textContent = dict.tapMe["en"];
             }
         })
         .catch(function (error) {
             console.error("Couldn't detect language by IP. Error:\n" + error);
             // Defaulting to en
-            langSpicy = localStorage["lang-spicy"] = "en";
-            // currentQ.textContent = dict.tapMe["en"];
+            localStorage["lang-spicy"] = "en";
+            currentQ.textContent = dict.tapMe["en"];
+        }).finally(() => {
+            setup(localStorage.getItem("lang-spicy"));
         });
+
+    // Not first time:
+} else {
+    setup(langSpicy);
 }
 
-const [lang, spicy] = langSpicy.split("-");
+function setup(langSpicy) {
+    const [lang, spicy] = langSpicy.split("-");
 
-// Update switch texts
-spicyText.textContent = dict.spicy[lang];
-langText.textContent = dict.language[lang];
-darkText.textContent = dict.lightdark[lang];
+    // Update switch texts
+    spicyText.textContent = dict.spicy[lang];
+    langText.textContent = dict.language[lang];
+    darkText.textContent = dict.lightdark[lang];
 
-// Update switch positions
-if (lang === "et") {
-    langSwitch.click();
+    // Update switch positions
+    if (lang === "et") {
+        langSwitch.click();
+    }
+    if (spicy === "spicy") {
+        spicySwitch.click();
+    }
+
+    currentQ.textContent = dict.tapMe[lang];
+    // // Display a question
+    // document.querySelector(".q-container").click();
 }
-if (spicy === "spicy") {
-    spicySwitch.click();
-}
-
-currentQ.textContent = dict.tapMe[lang];
-// // Display a question
-// document.querySelector(".q-container").click();
 
 
 // Language changed
