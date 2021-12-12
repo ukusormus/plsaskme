@@ -46,7 +46,7 @@ h4 {
 }
 
 .tgl-skewed+.tgl-btn {
-	overflow: hidden;
+	overflow: hidden !important;
 	transform: skew(-10deg);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
