@@ -44,43 +44,39 @@ if (langSpicy === null) {
         })
         .then(function (payload) {
             if (payload.location.country.code = 'EE') {
-                localStorage["lang-spicy"] = "et";
-                currentQ.textContent = dict.tapMe["et"];
+                langSpicy = localStorage["lang-spicy"] = "et";
+                // currentQ.textContent = dict.tapMe["et"];
             } else {
-                localStorage["lang-spicy"] = "en";
-                currentQ.textContent = dict.tapMe["en"];
+                langSpicy = localStorage["lang-spicy"] = "en";
+                // currentQ.textContent = dict.tapMe["en"];
             }
         })
         .catch(function (error) {
             console.error("Couldn't detect language by IP. Error:\n" + error);
             // Defaulting to en
-            localStorage["lang-spicy"] = "en";
-            currentQ.textContent = dict.tapMe["en"];
+            langSpicy = localStorage["lang-spicy"] = "en";
+            // currentQ.textContent = dict.tapMe["en"];
         });
-
-    // Not first time:
-} else {
-
-    const [lang, spicy] = langSpicy.split("-");
-
-    // Update switch texts
-    spicyText.textContent = dict.spicy[lang];
-    langText.textContent = dict.language[lang];
-    darkText.textContent = dict.lightdark[lang];
-
-    // Update switch positions
-    if (lang === "et") {
-        langSwitch.click();
-    }
-    if (spicy === "spicy") {
-        spicySwitch.click();
-    }
-
-    currentQ.textContent = dict.tapMe[lang];
-    // // Display a question
-    // document.querySelector(".q-container").click();
 }
 
+const [lang, spicy] = langSpicy.split("-");
+
+// Update switch texts
+spicyText.textContent = dict.spicy[lang];
+langText.textContent = dict.language[lang];
+darkText.textContent = dict.lightdark[lang];
+
+// Update switch positions
+if (lang === "et") {
+    langSwitch.click();
+}
+if (spicy === "spicy") {
+    spicySwitch.click();
+}
+
+currentQ.textContent = dict.tapMe[lang];
+// // Display a question
+// document.querySelector(".q-container").click();
 
 
 // Language changed
