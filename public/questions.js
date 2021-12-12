@@ -154,14 +154,14 @@ questionContainer.addEventListener('click', event => {
 
 // }
 
-setInterval(() => {
-    // 1. If there's less than 5 questions in local storage
-    // if (langSpicy)
+// setInterval(() => {
+//     // 1. If there's less than 5 questions in local storage
+//     // if (langSpicy)
 
-    // 2. Add missing question count to local storage
+//     // 2. Add missing question count to local storage
 
-    // console.log("smth")
-    // getNewRandQuestion().then((result) => {
-    //     console.log(result)
-    // })  
-}, 1500);
+//     // console.log("smth")
+//     // getNewRandQuestion().then((result) => {
+//     //     console.log(result)
+//     // })  
+// }, 1500);
