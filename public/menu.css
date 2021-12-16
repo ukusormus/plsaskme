@@ -56,7 +56,7 @@
     background: rgba(255, 255, 255, 0.95);
     text-align: left;
     
-    font-size: calc(1.5vw + 1.7vh);
+    /* font-size: calc(1.5vw + 1.7vh); */
 }
 #menu .menu-items.is-open > ul {
     padding-top: 0em;
