@@ -23,7 +23,7 @@ const pallette1 = [
 /** Get a random color from a pallette array and pop it off */
 const randomColorFromPallette = (pallette) => {
     if (!pallette.length) {
-        console.error("Color pallette array empty (or not long enough)!")
+        console.error("Color pallette array empty or not big enough. Setting all cards to color black.")
         return "#000"; // black
     }
 

@@ -1,7 +1,9 @@
 #menu {
-    z-index: 100;  /* Bring menu in front of everything*/
+    z-index: 100;  /* Bring menu in front of everything, except menu close button */
+    position: fixed;
 
-    display: inline-flex;
+    pointer-events: none;
+    /* display: inline-flex;
     justify-content: space-between;
     align-items: center;
 
@@ -11,7 +13,7 @@
     width: min-content;
 
     top: 0px;
-    left: 0px;
+    left: 0px; */
 
     /* padding-left: 1em;
     padding-right: 1em; */
@@ -19,7 +21,7 @@
 
 @media only screen and (max-width: 666px) {
     #menu {
-        height: 4em;
+        height: 100vh;
         width: 100vw;
     }
 }
@@ -51,12 +53,16 @@
 
 /* -- Hamburger menubar (.menu-trigger) -- */
 #menu .menu-trigger {
-    float: right;
-    /* 23 / 10 (w/h) */
+    position: fixed;
+    z-index: 101;
+
+    top: 2em;
+    right: 1em;
+
     width: 33px;
     height: 13px;
-    margin-right: 1em;
-    margin-top: 1em;
+
+    pointer-events: all;
     cursor: pointer;
 }
 
@@ -105,21 +111,30 @@
 
 /* -- Menu items (switches) -- */
 #menu .menu-items {
-    width: 100%;
-    padding-left: 1em;
+    /* width: 100%;
+    padding-left: 1em; */
 }
 
 #menu .menu-items.is-open {
-    position: absolute;
-    top: 60px;
-    display: block;
-    height: 90vh;
+    position: relative;
+    /* top: 60px; */
+    display: flex;
+
+    height: 100vh;
+    width: 100vw;
+
+    overflow-y: scroll;
+
     background: rgba(255, 255, 255, 0.95);
     text-align: left;
 }
 #menu .menu-items.is-open > ul {
-    position: sticky;
-    overflow-y: scroll;
+    padding-top: 6em;
+    padding-left: 2.1em;
+    padding-bottom: 1em;
+    /* position: sticky;
+    overflow-y: scroll; */
+    /* pointer-events: auto; */
     /* top: 50%;
     width: 100%;
     padding-left: 1em;
