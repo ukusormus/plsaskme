@@ -1,10 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 :root {
     --transition-time: 1.7s;  /* Controlled in cardstack.js */ 
     font-size: 16px;
 }
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
-html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{-webkit-box-sizing:border-box;box-sizing:border-box}*,*::before,*::after{-webkit-box-sizing:inherit;box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
 html {
     /* Users can't select text (won't interrupt the app-y feel) */
@@ -28,6 +35,7 @@ html {
 }
 
 body {
+    background: -o-radial-gradient(white 75%, #cccccc);
     background: radial-gradient(white 75%, #cccccc);
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -37,7 +45,9 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 
     /* Poker card aspect ratio: 2.5 / 3.5 */
     width: 70vw;
@@ -59,16 +69,30 @@ body {
     z-index: 99;
 
     /* Center textbox inside card */
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     text-align: left;
     /* Container size won't change if text overflows */
     overflow: hidden;
 
     /* Realistic shadows */
-    box-shadow:
+    -webkit-box-shadow:
+    0.7px 0.4px 1.7px rgba(0, 0, 0, 0.029),
+    1.9px 1.2px 4.2px rgba(0, 0, 0, 0.04),
+    3.8px 2.5px 7.9px rgba(0, 0, 0, 0.048),
+    7.2px 4.7px 14.1px rgba(0, 0, 0, 0.056),
+    13.7px 8.8px 26.3px rgba(0, 0, 0, 0.066),
+    31px 20px 63px rgba(0, 0, 0, 0.09)
+    ;
+            box-shadow:
     0.7px 0.4px 1.7px rgba(0, 0, 0, 0.029),
     1.9px 1.2px 4.2px rgba(0, 0, 0, 0.04),
     3.8px 2.5px 7.9px rgba(0, 0, 0, 0.048),
@@ -79,7 +103,11 @@ body {
 }
 
 .cardstack {
+    -webkit-transition: all var(--transition-time) ease-out, background-color 1s, -webkit-box-shadow 2s;
+    transition: all var(--transition-time) ease-out, background-color 1s, -webkit-box-shadow 2s;
+    -o-transition: all var(--transition-time) ease-out, background-color 1s, box-shadow 2s;
     transition: all var(--transition-time) ease-out, background-color 1s, box-shadow 2s;
+    transition: all var(--transition-time) ease-out, background-color 1s, box-shadow 2s, -webkit-box-shadow 2s;
 }
 
 #current-q {
@@ -88,7 +116,12 @@ body {
 }
 
 .cardstack:first-child {
-    box-shadow: 
+    -webkit-box-shadow: 
+    1 1px 25px hsl(0deg 0% 0% / 1),
+    0 2px 10px hsl(0deg 0% 0% / 0.2),
+    1px 3px 10px hsl(0deg 0% 0% / 0.2),
+    1px -1px 10px hsl(0deg 0% 0% / 0.2);
+            box-shadow: 
     1 1px 25px hsl(0deg 0% 0% / 1),
     0 2px 10px hsl(0deg 0% 0% / 0.2),
     1px 3px 10px hsl(0deg 0% 0% / 0.2),

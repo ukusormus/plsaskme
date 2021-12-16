@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 h4 {
 	color: #999;
     margin: 0;
@@ -47,9 +54,13 @@ h4 {
 
 .tgl-skewed+.tgl-btn {
 	overflow: hidden !important;
-	transform: skew(-10deg);
+	-webkit-transform: skew(-10deg);
+	    -ms-transform: skew(-10deg);
+	        transform: skew(-10deg);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	font-family: sans-serif;
 	background: #888;
@@ -57,8 +68,12 @@ h4 {
 
 .tgl-skewed+.tgl-btn:after,
 .tgl-skewed+.tgl-btn:before {
-	transform: skew(10deg);
+	-webkit-transform: skew(10deg);
+	    -ms-transform: skew(10deg);
+	        transform: skew(10deg);
 	display: inline-block;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 	width: 100%;
 	text-align: center;
