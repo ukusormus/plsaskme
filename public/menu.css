@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 /* Handles menu appearance & behavior. Ingrained with menu_trigger.js */
 
 #menu {
@@ -22,8 +29,12 @@
 
 /* -- Menu items (switches) -- */
 .menu-items {
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     display: none;
     pointer-events: auto;
 }
@@ -31,12 +42,16 @@
 #menu .menu-items.is-open {
     position: relative;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
 
     height: 100vh;
     width: 100vw;
 
-    overflow: scroll;
+    overflow: auto;
 
     background: rgba(255, 255, 255, 0.95);
     text-align: left;
@@ -82,8 +97,10 @@
     height: 3px;
     background: rgba(0, 0, 0, 0.75);
     -webkit-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
     border-radius: 18%;
 }
 
@@ -108,11 +125,13 @@
 }
 #menu .menu-trigger.is-open span:before {
     -webkit-transform: translate(0, 10px) rotate(-45deg);
-    transform: translate(0, 10px) rotate(-45deg);
+    -ms-transform: translate(0, 10px) rotate(-45deg);
+        transform: translate(0, 10px) rotate(-45deg);
 }
 #menu .menu-trigger.is-open span:after {
     -webkit-transform: translate(0, -10px) rotate(45deg);
-    transform: translate(0, -10px) rotate(45deg);
+    -ms-transform: translate(0, -10px) rotate(45deg);
+        transform: translate(0, -10px) rotate(45deg);
 }
 
 
@@ -120,12 +139,16 @@
 /* On bigger screens - make menu button bigger */
 @media screen and (min-width: 799px) {
     #menu .menu-trigger {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+                transform: scale(1.5);
         top: 3em;
         right: 2em;
     }
     #menu-clickable-area {
-        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+                transform: scale(1.5);
         top: 1.5em;
         right: 1.5em;
     }
@@ -135,7 +158,9 @@
     #menu .menu-items.is-open {
         text-align: -webkit-right;
         text-align: right;
-        justify-content: flex-end;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
         font-size: calc(0.8vw + 1.9vh);
     }
     #menu .menu-items.is-open > ul {
