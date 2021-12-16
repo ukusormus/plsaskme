@@ -1,4 +1,4 @@
-# 👉 convers.ee
+# 👉 plsaskme.com
 ## 🎉 Never have any boring conversations again!
 ## 💬 A random question generator for your next party 
 
@@ -33,10 +33,10 @@ My local backend:
 - Node.js script (using fs-extra)
 
 About some challenges I encountered:
-- different (mobile) browsers acting differently - responsive design
-- how to preload questions to avoid any visible stutter
+- different (mobile) browsers acting up differently / responsive design in general
+- how to preload questions to avoid wait
 - efficient CSS animations
-- what is actually important
+- focusing on the important, not nitpicking details
 
 The way questions reach users:
 0. **Gathering questions:** Google Forms, friends, other websites...
