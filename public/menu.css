@@ -59,7 +59,7 @@
     /* font-size: calc(1.5vw + 1.7vh); */
 }
 #menu .menu-items.is-open > ul {
-    padding-top: 0em;
+    padding-top: 6em;
     padding-left: 2.1em;
     padding-bottom: 1em;
 }
