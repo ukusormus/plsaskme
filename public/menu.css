@@ -7,12 +7,25 @@
     pointer-events: none;  /* To click "through". Is set to "auto" (enabled) when menu opened to scroll & click. .menu-trigger has pointer-events set to auto.*/
 }
 
+#menu-clickable-area {
+    background: red;
+    opacity: 0.5;
+    right: 0.5em;
+    top: 0.5em;
+    width: 3em;
+    height: 3em;
+    position: fixed;
+    margin: auto;
+    z-index: 200;
+    pointer-events: auto;
+}
 
 /* -- Menu items (switches) -- */
 .menu-items {
     justify-content: space-between;
     align-items: center;
     display: none;
+    pointer-events: auto;
 }
 
 #menu .menu-items.is-open {
@@ -23,7 +36,7 @@
     height: 100vh;
     width: 100vw;
 
-    overflow-y: auto;
+    overflow: auto;
 
     background: rgba(255, 255, 255, 0.95);
     text-align: left;
@@ -57,11 +70,16 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 799px) {
+@media screen and (min-width: 799px) { /* On bigger screens - make menu button bigger */
     #menu .menu-trigger {
         transform: scale(1.5);
         top: 3em;
         right: 2em;
+    }
+    #menu-clickable-area {
+        transform: scale(1.5);
+        top: 1.5em;
+        right: 1.5em;
     }
 }
 
