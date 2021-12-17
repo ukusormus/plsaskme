@@ -29,6 +29,7 @@ const spicyText = document.querySelector("#spicy-section > h4");
 const langText = document.querySelector("#lang-section > h4");
 const darkText = document.querySelector("#darkmode-section > h4")
 
+spicyText.textContent = "Some test"
 
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
