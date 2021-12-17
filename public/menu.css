@@ -49,9 +49,8 @@
 
     display: flex;
 
-    min-height: 100vh;
-    height: -webkit-fill-available;
-    /* min-height: -webkit-fill-available; */
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
 
     overflow-y: auto;
