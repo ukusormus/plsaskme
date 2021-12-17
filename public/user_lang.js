@@ -63,6 +63,10 @@ if (langSpicy === null) {
 function setup(langSpicy) {
     const [lang, spicy] = langSpicy.split("-");
 
+    if (lang !== "en" && lang !== "et") {
+        alert("WTF");
+    }
+
     // Update switch texts
     // spicyText.textContent = dict.spicy[lang];
     // langText.textContent = dict.language[lang];
