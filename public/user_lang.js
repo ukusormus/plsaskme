@@ -74,12 +74,12 @@ function setup(langSpicy) {
     darkText.textContent = dict.lightdark[lang];
 
     // Update switch positions
-    if (lang === "et") {
-        langSwitch.click();
-    }
-    if (spicy === "spicy") {
-        spicySwitch.click();
-    }
+    // if (lang === "et") {
+    //     langSwitch.click();
+    // }
+    // if (spicy === "spicy") {
+    //     spicySwitch.click();
+    // }
 
     currentQ.textContent = dict.tapMe[lang];
     // // Display a question
