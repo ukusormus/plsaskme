@@ -33,6 +33,8 @@ spicyText.textContent = dict.spicy["en"];
 langText.textContent = dict.language["en"];
 darkText.textContent = dict.lightdark["en"];
 
+lolasfk
+
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
 
