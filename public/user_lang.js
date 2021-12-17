@@ -54,16 +54,20 @@ if (langSpicy === null) {
         .catch(function (error) {
             console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
             localStorage["lang-spicy"] = "en";
+            alert("here too")
         }).finally(() => {
+            alert("here");
             setup(localStorage.getItem("lang-spicy"));
         });
 
     // Not first time:
 } else {
+    alert("here1");
     setup(langSpicy);
 }
 
 function setup(langSpicy) {
+    alert("here2")
     const [lang, spicy] = langSpicy.split("-");
 
     if (lang !== "en" && lang !== "et") {
@@ -86,6 +90,8 @@ function setup(langSpicy) {
 
     // Display smth like "Click me for new question" in appropriate lang 
     currentQ.textContent = dict.tapMe[lang];
+
+    alert("here3");
 }
 
 
