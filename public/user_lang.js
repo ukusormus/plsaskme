@@ -29,8 +29,7 @@ const spicyText = document.querySelector("#spicy-section > h4");
 const langText = document.querySelector("#lang-section > h4");
 const darkText = document.querySelector("#darkmode-section > h4")
 
-// Idk why but this fixes icon overflow bug on my phone (insert clown emoji)
-spicyText.textContent = dict.language["en"]; 
+spicyText.textContent = dict.language["en"];
 
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
@@ -70,9 +69,9 @@ function setup(langSpicy) {
     }
 
     // Update switch texts
-    spicyText.textContent = dict.spicy[lang];
-    langText.textContent = dict.language[lang];
-    darkText.textContent = dict.lightdark[lang];
+    // spicyText.textContent = dict.spicy[lang];
+    // langText.textContent = dict.language[lang];
+    // darkText.textContent = dict.lightdark[lang];
 
     console.log(`lang: '${lang}', spicy: '${spicy}'`);
     // Update switch positions
