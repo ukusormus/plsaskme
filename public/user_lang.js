@@ -104,23 +104,23 @@ langSwitch.addEventListener("click", () => {
     const newLang = langSwitch.checked ? "et" : "en";
 
     // Update switch texts
-    // spicyText.innerText = dict.spicy[newLang];
-    // langText.innerText = dict.language[newLang];
+    spicyText.innerHTML = dict.spicy[newLang];
+    langText.innerHTML = dict.language[newLang];
     darkText.innerHTML = dict.lightdark[newLang].toString();
 
     // Update currentQ
-    currentQ.innerText = dict.tapMe[newLang];
+    currentQ.innerHTML = dict.tapMe[newLang];
 
     // Update local storage
     const currentSpicy = spicySwitch.checked ? "-spicy" : "";
     localStorage["lang-spicy"] = newLang + currentSpicy;
 });
 
-// // Spiciness changed
-// spicySwitch.addEventListener("click", () => {
-//     const newSpicy = spicySwitch.checked ? "-spicy" : "";
-//     const currentLang = langSwitch.checked ? "et" : "en";
+// Spiciness changed
+spicySwitch.addEventListener("click", () => {
+    const newSpicy = spicySwitch.checked ? "-spicy" : "";
+    const currentLang = langSwitch.checked ? "et" : "en";
 
-//     // Update local storage
-//     localStorage["lang-spicy"] = currentLang + newSpicy;
-// });
+    // Update local storage
+    localStorage["lang-spicy"] = currentLang + newSpicy;
+});
