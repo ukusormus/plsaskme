@@ -17,6 +17,20 @@
     padding-right: 1em; */
 }
 
+#menu-clickable-area {
+    /* background: red;
+    opacity: 0.5; */
+    right: 0.5em;
+    top: 0.5em;
+    width: 3em;
+    height: 3em;
+    position: fixed;
+    margin: auto;
+    z-index: 200;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 666px) {
     #menu {
         height: 100vh;
