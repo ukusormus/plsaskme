@@ -90,7 +90,7 @@ function setup(langSpicy) {
     }
 
     // Display smth like "Click me for new question" in appropriate lang 
-    currentQ.textContent = dict.tapMe[lang];
+    // currentQ.textContent = dict.tapMe[lang];
 
     alert("here3");
 }
