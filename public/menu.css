@@ -61,7 +61,7 @@
     font-size: calc(1.7vw + 1.5vh);
 }
 #menu .menu-items.is-open > ul {
-    padding-top: 6em;
+    padding-top: 2em;
     padding-left: 2.1em;
     padding-bottom: 1em;
 }
