@@ -31,7 +31,7 @@ const darkText = document.querySelector("#darkmode-section > h4")
 
 spicyText.textContent = dict.spicy["en"];
 langText.textContent = dict.language["en"];
-darkText.textContent = dict.a["en"];
+darkText.textContent = dict.lightdark["en"];
 
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
