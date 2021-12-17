@@ -105,10 +105,10 @@ langSwitch.addEventListener("click", event => {
 });
 
 // Spiciness changed
-spicySwitch.addEventListener("click", event => {
-    const newSpicy = spicySwitch.checked ? "-spicy" : "";
-    const currentLang = langSwitch.checked ? "et" : "en";
+// spicySwitch.addEventListener("click", event => {
+//     const newSpicy = spicySwitch.checked ? "-spicy" : "";
+//     const currentLang = langSwitch.checked ? "et" : "en";
 
-    // Update local storage
-    localStorage["lang-spicy"] = currentLang + newSpicy;
-});
+//     // Update local storage
+//     localStorage["lang-spicy"] = currentLang + newSpicy;
+// });
