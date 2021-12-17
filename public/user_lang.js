@@ -57,6 +57,7 @@ if (langSpicy === null) {
             alert("here too")
         }).finally(() => {
             alert("here");
+            throw new Error();
             setup(localStorage.getItem("lang-spicy"));
         });
 
