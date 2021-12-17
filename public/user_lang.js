@@ -104,9 +104,9 @@ langSwitch.addEventListener("click", () => {
     const newLang = langSwitch.checked ? "et" : "en";
 
     // Update switch texts
-    spicyText.innerText = dict.spicy[newLang];
-    langText.innerText = dict.language[newLang];
-    darkText.innerText = dict.lightdark[newLang]
+    // spicyText.innerText = dict.spicy[newLang];
+    // langText.innerText = dict.language[newLang];
+    // darkText.innerText = dict.lightdark[newLang];
 
     // Update currentQ
     currentQ.innerText = dict.tapMe[newLang];
