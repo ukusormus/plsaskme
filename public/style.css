@@ -32,6 +32,7 @@ html {
     overflow: hidden;
     min-width: 100vw;
     min-height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); /* Fix Safari */ 
 }
 
 body {
@@ -132,16 +133,11 @@ body {
 @media (orientation: landscape) {
     .q-container, .cardstack {
         height: 75vh;
+        height: calc(var(--vh, 1vh) * 75); /* Fix Safari */ 
         width: 105vh;
+        width: calc(var(--vh, 1vh) * 105); /* Fix Safari */ 
     }
 }
-
-/* Desktop: make font larger */
-/* @media only screen and (min-width: 768px) {
-    .q-container {
-        font-size: 8vw;
-    }
-} */
 
 /* Mobile: move cards downwards to have room for nav */
 @media only screen and (max-width: 485px) {
