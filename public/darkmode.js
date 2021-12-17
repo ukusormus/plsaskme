@@ -21,7 +21,7 @@ else if (darkmodeInLocalStorage === "true") {
 }
 
 
-darkSwitch.addEventListener("mousedown", event => {
+darkSwitch.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {

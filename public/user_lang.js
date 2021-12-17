@@ -52,8 +52,7 @@ if (langSpicy === null) {
             }
         })
         .catch(function (error) {
-            console.error("Couldn't detect language by IP. Error:\n" + error);
-            // Defaulting to en
+            console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
             localStorage["lang-spicy"] = "en";
             currentQ.textContent = dict.tapMe["en"];
         }).finally(() => {
@@ -88,7 +87,7 @@ function setup(langSpicy) {
 
 
 // Language changed
-langSwitch.addEventListener("click", event => {
+langSwitch.addEventListener("click", () => {
     const newLang = langSwitch.checked ? "et" : "en";
 
     // Update switch texts
@@ -105,7 +104,7 @@ langSwitch.addEventListener("click", event => {
 });
 
 // Spiciness changed
-spicySwitch.addEventListener("click", event => {
+spicySwitch.addEventListener("click", () => {
     const newSpicy = spicySwitch.checked ? "-spicy" : "";
     const currentLang = langSwitch.checked ? "et" : "en";
 

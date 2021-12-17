@@ -127,12 +127,12 @@ async function getNewRandQuestion() {
     qHistory[langSpicy()].insert(randomIndex);
 
     // 5. Return question text
-    return question // asteriskToBold(question);
+    return question;
 }
 
 
 // New question with click/tap on question container (mousedown = fired the moment the button is initially pressed)
-questionContainer.addEventListener('click', event => {
+questionContainer.addEventListener('click', () => {
     getNewRandQuestion().then((result) => {
         console.log("result mouse / tap: " + result)
         currentQuestionText.innerHTML = result;
@@ -140,28 +140,11 @@ questionContainer.addEventListener('click', event => {
 });
 
 // New question with spacebar
-// document.addEventListener('keydown', event => {
-//     if (event.code === "Space") {
-//         getNewRandQuestion().then((result) => {
-//             console.log("result keydown: " + result)
-//             currentQuestionText.innerHTML = asteriskToBold(result);
-//         });
-//     }
-// });
-
-
-// async function getNewRandQuestion_local() {
-
-// }
-
-// setInterval(() => {
-//     // 1. If there's less than 5 questions in local storage
-//     // if (langSpicy)
-
-//     // 2. Add missing question count to local storage
-
-//     // console.log("smth")
-//     // getNewRandQuestion().then((result) => {
-//     //     console.log(result)
-//     // })  
-// }, 1500);
+document.addEventListener('keydown', event => {
+    if (event.code === "Space") {
+        getNewRandQuestion().then((result) => {
+            console.log("result keydown: " + result)
+            currentQuestionText.innerHTML = result;
+        });
+    }
+});
