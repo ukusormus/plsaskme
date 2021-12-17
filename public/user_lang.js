@@ -71,7 +71,7 @@ function setup(langSpicy) {
     }
 
     // Update switch texts
-    spicyText.textContent = dict.spicy[lang];
+    // spicyText.textContent = dict.spicy[lang];
     // langText.textContent = dict.language[lang];
     // darkText.textContent = dict.lightdark[lang];
 
