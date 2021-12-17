@@ -21,8 +21,8 @@ const dict = {
 
 
 // Switches
-// const spicySwitch = document.querySelector("#spicy");
-// const langSwitch = document.querySelector("#lang");
+const spicySwitch = document.querySelector("#spicy");
+const langSwitch = document.querySelector("#lang");
 
 // Switch texts
 const spicyText = document.querySelector("#spicy-section > h4");
@@ -45,10 +45,10 @@ if (langSpicy === null) {
         .then(function (payload) {
             if (payload.location.country.code = 'EE') {
                 localStorage["lang-spicy"] = "et";
-                currentQ.textContent = dict.tapMe["et"];
+                // currentQ.textContent = dict.tapMe["et"];
             } else {
                 localStorage["lang-spicy"] = "en";
-                currentQ.textContent = dict.tapMe["en"];
+                // currentQ.textContent = dict.tapMe["en"];
             }
         })
         .catch(function (error) {
@@ -68,9 +68,9 @@ function setup(langSpicy) {
     const [lang, spicy] = langSpicy.split("-");
 
     // Update switch texts
-    spicyText.textContent = dict.spicy[lang];
-    langText.textContent = dict.language[lang];
-    darkText.textContent = dict.lightdark[lang];
+    // spicyText.textContent = dict.spicy[lang];
+    // langText.textContent = dict.language[lang];
+    // darkText.textContent = dict.lightdark[lang];
 
     // Update switch positions
     if (lang === "et") {
@@ -80,9 +80,8 @@ function setup(langSpicy) {
         spicySwitch.click();
     }
 
+    // Display smth like "Click me for new question" in appropriate lang 
     currentQ.textContent = dict.tapMe[lang];
-    // // Display a question
-    // document.querySelector(".q-container").click();
 }
 
 
