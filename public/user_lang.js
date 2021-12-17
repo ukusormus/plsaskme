@@ -100,21 +100,21 @@ let langSpicy = localStorage.getItem("lang-spicy");
 
 
 // Language changed
-// langSwitch.addEventListener("click", () => {
-//     const newLang = langSwitch.checked ? "et" : "en";
+langSwitch.addEventListener("click", () => {
+    const newLang = langSwitch.checked ? "et" : "en";
 
-//     // Update switch texts
-//     spicyText.textContent = dict.spicy[newLang];
-//     langText.textContent = dict.language[newLang];
-//     darkText.textContent = dict.lightdark[newLang]
+    // Update switch texts
+    spicyText.textContent = dict.spicy[newLang];
+    langText.textContent = dict.language[newLang];
+    darkText.textContent = dict.lightdark[newLang]
 
-//     // Update currentQ
-//     currentQ.textContent = dict.tapMe[newLang];
+    // Update currentQ
+    currentQ.textContent = dict.tapMe[newLang];
 
-//     // Update local storage
-//     const currentSpicy = spicySwitch.checked ? "-spicy" : "";
-//     localStorage["lang-spicy"] = newLang + currentSpicy;
-// });
+    // Update local storage
+    const currentSpicy = spicySwitch.checked ? "-spicy" : "";
+    localStorage["lang-spicy"] = newLang + currentSpicy;
+});
 
 // // Spiciness changed
 // spicySwitch.addEventListener("click", () => {
