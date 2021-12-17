@@ -79,7 +79,7 @@ h4 {
 	text-align: center;
 	position: absolute;
 	line-height: 2em;
-	font-weight: bold;
+	/* font-weight: bold; */
 	color: #fff;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
