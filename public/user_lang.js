@@ -38,18 +38,18 @@ let langSpicy = localStorage.getItem("lang-spicy");
 
 // If first time: try to guess the country (and language) by IP address
 if (langSpicy === null) {
-    localStorage.setItem("lang-spicy", "");
+    // localStorage.setItem("lang-spicy", "");
 
     fetch('https://api.ipregistry.co/?key=iepjetovubznkogb')
         .then(function (response) {
             return response.json();
         })
         .then(function (payload) {
-            if (payload.location.country.code = 'EE') {
-                localStorage["lang-spicy"] = "et";
-            } else {
-                localStorage["lang-spicy"] = "en";
-            }
+            // if (payload.location.country.code = 'EE') {
+            //     localStorage["lang-spicy"] = "et";
+            // } else {
+            //     localStorage["lang-spicy"] = "en";
+            // }
         })
         .catch(function (error) {
             console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
