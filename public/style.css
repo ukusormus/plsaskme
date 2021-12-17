@@ -15,23 +15,23 @@ html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,ifr
 
 html {
     /* Users can't select text (won't interrupt the app-y feel) */
-    /* -ms-user-select: none;
+    -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    user-select: none; */
+    user-select: none;
 
     /* Users cam't zoom on mobile */
-    /* touch-action: pan-y;
+    touch-action: pan-y;
     -ms-touch-action: pan-y;
 
-    text-decoration: none; */
+    text-decoration: none;
 }
 
 html {
-    /* overflow: hidden;
+    overflow: hidden;
     min-width: 100vw;
-    min-height: 100vh; */
+    min-height: 100vh;
 }
 
 body {
