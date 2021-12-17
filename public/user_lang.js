@@ -30,7 +30,6 @@ const langText = document.querySelector("#lang-section > h4");
 const darkText = document.querySelector("#darkmode-section > h4")
 
 
-
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
 
@@ -45,16 +44,13 @@ if (langSpicy === null) {
         .then(function (payload) {
             if (payload.location.country.code = 'EE') {
                 localStorage["lang-spicy"] = "et";
-                // currentQ.textContent = dict.tapMe["et"];
             } else {
                 localStorage["lang-spicy"] = "en";
-                // currentQ.textContent = dict.tapMe["en"];
             }
         })
         .catch(function (error) {
             console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
             localStorage["lang-spicy"] = "en";
-            currentQ.textContent = dict.tapMe["en"];
         }).finally(() => {
             setup(localStorage.getItem("lang-spicy"));
         });
@@ -86,27 +82,27 @@ function setup(langSpicy) {
 
 
 // Language changed
-langSwitch.addEventListener("click", () => {
-    const newLang = langSwitch.checked ? "et" : "en";
+// langSwitch.addEventListener("click", () => {
+//     const newLang = langSwitch.checked ? "et" : "en";
 
-    // Update switch texts
-    spicyText.textContent = dict.spicy[newLang];
-    langText.textContent = dict.language[newLang];
-    darkText.textContent = dict.lightdark[newLang]
+//     // Update switch texts
+//     spicyText.textContent = dict.spicy[newLang];
+//     langText.textContent = dict.language[newLang];
+//     darkText.textContent = dict.lightdark[newLang]
 
-    // Update currentQ
-    currentQ.textContent = dict.tapMe[newLang];
+//     // Update currentQ
+//     currentQ.textContent = dict.tapMe[newLang];
 
-    // Update local storage
-    const currentSpicy = spicySwitch.checked ? "-spicy" : "";
-    localStorage["lang-spicy"] = newLang + currentSpicy;
-});
+//     // Update local storage
+//     const currentSpicy = spicySwitch.checked ? "-spicy" : "";
+//     localStorage["lang-spicy"] = newLang + currentSpicy;
+// });
 
-// Spiciness changed
-spicySwitch.addEventListener("click", () => {
-    const newSpicy = spicySwitch.checked ? "-spicy" : "";
-    const currentLang = langSwitch.checked ? "et" : "en";
+// // Spiciness changed
+// spicySwitch.addEventListener("click", () => {
+//     const newSpicy = spicySwitch.checked ? "-spicy" : "";
+//     const currentLang = langSwitch.checked ? "et" : "en";
 
-    // Update local storage
-    localStorage["lang-spicy"] = currentLang + newSpicy;
-});
+//     // Update local storage
+//     localStorage["lang-spicy"] = currentLang + newSpicy;
+// });
