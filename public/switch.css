@@ -21,7 +21,7 @@ h4 {
 	display: block;
 	width: 4em;
 	height: 2em;
-	position: relative;
+	/* position: relative; */
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
