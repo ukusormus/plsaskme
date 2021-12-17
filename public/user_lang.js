@@ -21,8 +21,8 @@ const dict = {
 
 
 // Switches
-const spicySwitch = document.querySelector("#spicy");
-const langSwitch = document.querySelector("#lang");
+// const spicySwitch = document.querySelector("#spicy");
+// const langSwitch = document.querySelector("#lang");
 
 // Switch texts
 const spicyText = document.querySelector("#spicy-section > h4");
@@ -74,12 +74,12 @@ function setup(langSpicy) {
     darkText.textContent = dict.lightdark[lang];
 
     // Update switch positions
-    // if (lang === "et") {
-    //     langSwitch.click();
-    // }
-    // if (spicy === "spicy") {
-    //     spicySwitch.click();
-    // }
+    if (lang === "et") {
+        langSwitch.click();
+    }
+    if (spicy === "spicy") {
+        spicySwitch.click();
+    }
 
     currentQ.textContent = dict.tapMe[lang];
     // // Display a question
@@ -105,10 +105,10 @@ langSwitch.addEventListener("click", event => {
 });
 
 // Spiciness changed
-// spicySwitch.addEventListener("click", event => {
-//     const newSpicy = spicySwitch.checked ? "-spicy" : "";
-//     const currentLang = langSwitch.checked ? "et" : "en";
+spicySwitch.addEventListener("click", event => {
+    const newSpicy = spicySwitch.checked ? "-spicy" : "";
+    const currentLang = langSwitch.checked ? "et" : "en";
 
-//     // Update local storage
-//     localStorage["lang-spicy"] = currentLang + newSpicy;
-// });
+    // Update local storage
+    localStorage["lang-spicy"] = currentLang + newSpicy;
+});
