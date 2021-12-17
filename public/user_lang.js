@@ -36,6 +36,7 @@ darkText.textContent = dict.lightdark["en"];
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
 
+throw new Error();
 // If first time: try to guess the country (and language) by IP address
 if (langSpicy === null) {
     // localStorage.setItem("lang-spicy", "");
