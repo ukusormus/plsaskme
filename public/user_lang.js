@@ -104,7 +104,7 @@ langSwitch.addEventListener("click", () => {
 
     // Update switch texts
     spicyText.innerHTML = dict.spicy[newLang].toString();
-    // langText.innerHTML = dict.language[newLang].toString();
+    langText.innerHTML = dict.language[newLang].toString();
     darkText.innerHTML = dict.lightdark[newLang].toString();
 
     // Update currentQ
