@@ -29,10 +29,6 @@ const spicyText = document.querySelector("#spicy-section > h4");
 const langText = document.querySelector("#lang-section > h4");
 const darkText = document.querySelector("#darkmode-section > h4")
 
-// spicyText.innerText = dict.spicy["en"];
-// langText.innerText = dict.language["en"];
-// darkText.innerText = dict.lightdark["en"];
-
 
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
@@ -59,9 +55,10 @@ if (langSpicy === null) {
         }).finally(() => {
             setup(localStorage.getItem("lang-spicy"));
         });
-
-    // Not first time:
-} else {
+    
+} 
+// Not first time:
+else {
     setup(langSpicy);
 }
 
