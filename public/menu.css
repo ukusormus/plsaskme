@@ -66,9 +66,9 @@
     padding-bottom: 1em;
 }
 
-#menu .menu-items.is-open li:nth-child(n+2) {
+/* #menu .menu-items.is-open li:nth-child(n+2) {
     margin: 60px 0;
-}
+} */
 #menu .menu-items.is-open h4 {
     font-size: 3em;
 }
