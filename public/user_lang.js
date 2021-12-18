@@ -39,63 +39,63 @@ let langSpicy = localStorage.getItem("lang-spicy");
 
 
 // If first time: try to guess the country (and language) by IP address
-// if (langSpicy === null) {
-//     // localStorage.setItem("lang-spicy", "");
+if (langSpicy === null) {
+    // localStorage.setItem("lang-spicy", "");
 
-//     fetch('https://api.ipregistry.co/?key=iepjetovubznkogb')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (payload) {
-//             // if (payload.location.country.code = 'EE') {
-//             //     localStorage["lang-spicy"] = "et";
-//             // } else {
-//             //     localStorage["lang-spicy"] = "en";
-//             // }
-//         })
-//         .catch(function (error) {
-//             console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
-//             localStorage["lang-spicy"] = "en";
-//             alert("here too")
-//         }).finally(() => {
-//             alert("here");
-//             throw new Error();
-//             setup(localStorage.getItem("lang-spicy"));
-//         });
+    fetch('https://api.ipregistry.co/?key=iepjetovubznkogb')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (payload) {
+            if (payload.location.country.code = 'EE') {
+                localStorage["lang-spicy"] = "et";
+            } else {
+                localStorage["lang-spicy"] = "en";
+            }
+        })
+        .catch(function (error) {
+            console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
+            localStorage["lang-spicy"] = "en";
+            // alert("here too")
+        }).finally(() => {
+            // alert("here");
+            // throw new Error();
+            setup(localStorage.getItem("lang-spicy"));
+        });
 
-//     // Not first time:
-// } else {
-//     alert("here1");
-//     setup(langSpicy);
-// }
+    // Not first time:
+} else {
+    // alert("here1");
+    setup(langSpicy);
+}
 
-// function setup(langSpicy) {
-//     alert("here2")
-//     const [lang, spicy] = langSpicy.split("-");
+function setup(langSpicy) {
+    // alert("here2")
+    const [lang, spicy] = langSpicy.split("-");
 
-//     if (lang !== "en" && lang !== "et") {
-//         alert("WTF");
-//     }
+    if (lang !== "en" && lang !== "et") {
+        alert("WTF");
+    }
 
-//     // Update switch texts
-//     // spicyText.textContent = dict.spicy[lang];
-//     // langText.textContent = dict.language[lang];
-//     // darkText.textContent = dict.lightdark[lang];
+    // Update switch texts
+    // spicyText.textContent = dict.spicy[lang];
+    // langText.textContent = dict.language[lang];
+    // darkText.textContent = dict.lightdark[lang];
 
-//     console.log(`lang: '${lang}', spicy: '${spicy}'`);
-//     // Update switch positions
-//     if (lang === "et") {
-//         // langSwitch.click();
-//     }
-//     if (spicy === "spicy") {
-//         // spicySwitch.click();
-//     }
+    console.log(`lang: '${lang}', spicy: '${spicy}'`);
+    // Update switch positions
+    if (lang === "et") {
+        // langSwitch.click();
+    }
+    if (spicy === "spicy") {
+        // spicySwitch.click();
+    }
 
-//     // Display smth like "Click me for new question" in appropriate lang 
-//     currentQ.textContent = dict.tapMe[lang];
+    // Display smth like "Click me for new question" in appropriate lang 
+    currentQ.textContent = dict.tapMe[lang];
 
-//     alert("here3");
-// }
+    // alert("here3");
+}
 
 
 // Language changed
