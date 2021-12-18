@@ -29,7 +29,7 @@ const spicyText = document.querySelector("#spicy-section > h4");
 const langText = document.querySelector("#lang-section > h4");
 const darkText = document.querySelector("#darkmode-section > h4")
 
-// spicyText.textContent = dict.spicy["en"];
+spicyText.innerText = dict.spicy["en"];
 langText.innerText = dict.language["en"];
 darkText.innerText = dict.lightdark["en"];
 
