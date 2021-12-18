@@ -103,12 +103,12 @@ langSwitch.addEventListener("click", () => {
     const newLang = langSwitch.checked ? "et" : "en";
 
     // Update switch texts
-    spicyText.innerHTML = dict.spicy[newLang].toString();
-    langText.innerHTML = dict.language[newLang].toString();
-    darkText.innerHTML = dict.lightdark[newLang].toString();
+    spicyText.textContent = dict.spicy[newLang];
+    langText.textContent = dict.language[newLang];
+    darkText.textContent = dict.lightdark[newLang];
 
     // Update currentQ
-    currentQ.innerHTML = dict.tapMe[newLang];
+    currentQ.textContent = dict.tapMe[newLang];
 
     // Update local storage
     const currentSpicy = spicySwitch.checked ? "-spicy" : "";
