@@ -31,7 +31,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
 - **Two languages** (English, Estonian)
 - Choose between **usual and *spicy* mode** 🌶 (for somewhat naughtier questions)
 - **Dark mode** available
-- **Automatically detects language** based on country
+- **Automatically detects language** based on country (IP)
 - **Saves preferences between sessions** (language & spiciness, already asked questions)
 <br>
 <hr>
@@ -40,16 +40,16 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
 ## Technical details and a bit about the process
 
 ### Stack
-Since I'm a rat (hello!) and didn't want to pay for any hosting, this project is built on the premise that __there is no database and backend processing *per se*__, so the whole thing can be deployed as a static site.
+This project is built on the premise that __there is no database and backend processing *per se*__, so the whole thing can be deployed as a static site. Why pay for hosting if I don't have to?
 
-- Website: pure HTML/JS/CSS
-- Static hosting: Netlify (free plan)
-- *Well, where are the questions?* As [static assets](#the-way-questions-reach-my-happy-users).
+- Website: **pure HTML/JS/CSS**
+- Static hosting: **Netlify** (free plan)
+- *Well, where are the questions?* As static assets, see [The way questions reach my happy users](#the-way-questions-reach-my-happy-users).
 
 
 For country detection, [ipregistry.co] API.
 
-I still pay for two custom domain names, because they're cool. Right? __[askmepls.com]__ and __[plsaskme.com]__
+I still pay for two custom domain names, because they're cool together (at least I hope): __[askmepls.com]__ and __[plsaskme.com]__
 
 <br>
 
@@ -92,6 +92,10 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 - Data -> Data Cleanup -> Remove duplicates
 - To remove "107." from "107. What's your name?" when gathering questions from the interweebz: 
     CTRL F + regex `^\d+(\.|\,)\s+` (also works with commas, uneven spacing)
+
+### Useful tools not mentioned yet
+- https://regexr.com/
+- https://realfavicongenerator.net/
     
 [plsaskme.com]: <https://plsaskme.com>
 [askmepls.com]: <https://askmepls.com>
