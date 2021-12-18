@@ -47,7 +47,7 @@ This project is built on the premise that __there is no database and backend pro
 - *Well, where are the questions?* As static assets, see [The way questions reach my happy users](#the-way-questions-reach-my-happy-users).
 
 
-For country detection, [ipregistry.co] API.
+For country detection, [ipregistry.co] API (fast, 100,000 requests for free).
 
 I still pay for two custom domain names, because they're cool together (at least I hope): __[askmepls.com]__ and __[plsaskme.com]__
 
@@ -83,7 +83,7 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
         (e.g. there's a question at [plsaskme.com/questions/en-spicy/17])
 3. **Fetching & displaying questions:** JavaScript Fetch API + local storage as question history mechanism.
 
-`q-putter.mjs` is a Node.js script (uses Node module `[fs-extra]`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
+`q-putter.mjs` is a Node.js script (uses Node module `fs-extra`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
 
 <br>
 
@@ -100,5 +100,4 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 [plsaskme.com]: <https://plsaskme.com>
 [askmepls.com]: <https://askmepls.com>
 [CS50x]: <https://cs50.harvard.edu/x/2021>
-[fs-extra]: <https://www.npmjs.com/package/fs-extra>
 [ipregistry.co]: <https://ipregistry.co>
