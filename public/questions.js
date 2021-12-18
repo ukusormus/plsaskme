@@ -131,20 +131,47 @@ async function getNewRandQuestion() {
 }
 
 
-// New question with click/tap on question container (mousedown = fired the moment the button is initially pressed)
+// New question with click/tap on question container
+// questionContainer.addEventListener('click', () => {
+//     getNewRandQuestion().then((result) => {
+//         console.log("result mouse / tap: " + result)
+//         currentQuestionText.innerHTML = result;
+//     });
+// });
+
+let savedResult = "";
+let savedResult_langSpicy = "";
+getNewRandQuestion().then((result) => {
+    savedResult = result;
+    savedResult_langSpicy = langSpicy();
+});
+
+// New question with click/tap on question container
 questionContainer.addEventListener('click', () => {
+    if (langSpicy() === savedResult_langSpicy) {
+        // Use saved result
+        currentQuestionText.textContent = savedResult;
+    } else {
+        // Language or spiciness has changed in between, fetch new
+        getNewRandQuestion().then((result) => {
+            currentQuestionText.textContent = result;
+        });
+    }
+
+    // Save (fetch) next one
     getNewRandQuestion().then((result) => {
-        console.log("result mouse / tap: " + result)
-        currentQuestionText.innerHTML = result;
+        console.log("Next question: " + result)
+        savedResult = result;
+        savedResult_langSpicy = langSpicy();
     });
 });
 
 // New question with spacebar
-document.addEventListener('keydown', event => {
-    if (event.code === "Space") {
-        getNewRandQuestion().then((result) => {
-            console.log("result keydown: " + result)
-            currentQuestionText.innerHTML = result;
-        });
-    }
-});
+// document.addEventListener('keydown', event => {
+//     if (event.code === "Space") {
+//         getNewRandQuestion().then((result) => {
+//             console.log("Next question: " + result)
+//             currentQuestionText.innerHTML = result;
+//         });
+//     }
+// });

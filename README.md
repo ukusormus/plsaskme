@@ -4,6 +4,7 @@
 Fun (and spicy) random questions for friends and couples (or maybe even yourself, who knows!).
 
 Final project for Harvard's MOOC "__[CS50x]__", 2020-21.
+(As of Dec '21, also going to be submitted to Estonian harpi.com web-app programming competition)
 
 Deployment status:
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/conversee/deploys)
@@ -40,6 +41,7 @@ Visual Studio Code and Live Extension came in handy.
 - Different (mobile) browsers acting up differently (*OMG!*, that Safari margin bug that I debugged until 3pm) / responsive design in general
 - How to preload questions to avoid wait
 - Efficient animations
+- Getting my head around async / await / modules (https://addyosmani.com/blog/script-priorities/); still not good at it
 - Focusing on the important, not nitpicking details :)
 
 ### The way questions reach my happy users:
