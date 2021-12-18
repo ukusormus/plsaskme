@@ -34,7 +34,6 @@ langText.innerText = dict.language["en"];
 darkText.innerText = dict.lightdark["en"];
 
 
-
 const currentQ = document.querySelector("#current-q");
 let langSpicy = localStorage.getItem("lang-spicy");
 
