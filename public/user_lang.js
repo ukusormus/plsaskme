@@ -29,9 +29,9 @@ const spicyText = document.querySelector("#spicy-section > h4");
 const langText = document.querySelector("#lang-section > h4");
 const darkText = document.querySelector("#darkmode-section > h4")
 
-spicyText.innerText = dict.spicy["en"];
-langText.innerText = dict.language["en"];
-darkText.innerText = dict.lightdark["en"];
+// spicyText.innerText = dict.spicy["en"];
+// langText.innerText = dict.language["en"];
+// darkText.innerText = dict.lightdark["en"];
 
 
 const currentQ = document.querySelector("#current-q");
@@ -40,7 +40,7 @@ let langSpicy = localStorage.getItem("lang-spicy");
 
 // If first time: try to guess the country (and language) by IP address
 if (langSpicy === null) {
-    // localStorage.setItem("lang-spicy", "");
+    localStorage.setItem("lang-spicy", "");
 
     fetch('https://api.ipregistry.co/?key=iepjetovubznkogb')
         .then(function (response) {
@@ -56,26 +56,17 @@ if (langSpicy === null) {
         .catch(function (error) {
             console.error("Couldn't detect language by IP. Defaulting to 'en'. Error:\n" + error);
             localStorage["lang-spicy"] = "en";
-            // alert("here too")
         }).finally(() => {
-            // alert("here");
-            // throw new Error();
             setup(localStorage.getItem("lang-spicy"));
         });
 
     // Not first time:
 } else {
-    // alert("here1");
     setup(langSpicy);
 }
 
 function setup(langSpicy) {
-    // alert("here2")
     const [lang, spicy] = langSpicy.split("-");
-
-    if (lang !== "en" && lang !== "et") {
-        alert("WTF");
-    }
 
     // Update switch texts
     spicyText.textContent = dict.spicy[lang];
@@ -93,8 +84,6 @@ function setup(langSpicy) {
 
     // Display smth like "Click me for new question" in appropriate lang 
     currentQ.textContent = dict.tapMe[lang];
-
-    // alert("here3");
 }
 
 
