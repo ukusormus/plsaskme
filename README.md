@@ -29,6 +29,8 @@ Since I'm a rat (hello!) and didn't want to pay for any hosting, this project is
 - Netlify (free plan) / questions are saved from GitHub folder "public/questions" as static assets
 - Pure HTML/JS/CSS
 
+For country detection, ipregistry.co API.
+
 I still pay for two custom domain names, because they're cool. Right? askmepls.com and plsaskme.com
 
 ### My local "backend": 
