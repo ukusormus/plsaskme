@@ -29,6 +29,8 @@ h4 {
 	user-select: none;
 	overflow: hidden;
     border-radius: 0.25em;
+	margin-bottom: 1.5em;
+	margin-top: 0.3em;
 }
 
 .tgl+.tgl-btn:after,
