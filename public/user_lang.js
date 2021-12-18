@@ -85,10 +85,10 @@ function setup(langSpicy) {
     console.log(`lang: '${lang}', spicy: '${spicy}'`);
     // Update switch positions
     if (lang === "et") {
-        // langSwitch.click();
+        langSwitch.click();
     }
     if (spicy === "spicy") {
-        // spicySwitch.click();
+        spicySwitch.click();
     }
 
     // Display smth like "Click me for new question" in appropriate lang 
