@@ -1,5 +1,5 @@
 /* Cardstack below the question card */
-
+(() => {
 
 /** Get random integer between min (inclusive) and max (inclusive) */
 const random = (min, max) => {
@@ -70,3 +70,5 @@ setTimeout(() => {
         0 -1px 1px hsl(0deg 0% 0% / 0.1);
     }`);
 }, 1000);
+
+})();

@@ -33,10 +33,8 @@
 
     <title>Fun & Spicy Random Question Generator | Pls, Ask Me!</title>
 
-    <!-- TODO: custom favicon & https://realfavicongenerator.net/ -->
-
-    <!-- Displaying & fetching questions ("module" needed for top-level-await.) -->
-    <script type="module" src="./questions.js"></script>
+    <!-- Displaying & fetching questions -->
+    <script defer src="./questions.js"></script>
 
     <!-- Animations for cardstack behind main question card-->
     <script defer src="./cardstack.js"></script>
@@ -46,7 +44,7 @@
     <script defer src="./user_lang.js"></script>
 
     <script>
-        /* Deals with different platforms (e.g. SAFARI!) handling vh differently. */
+        /* Deals with different platforms (e.g. Safari) handling vh differently with URL-bar etc. */
 
         // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
         let vh = window.innerHeight * 0.01;
