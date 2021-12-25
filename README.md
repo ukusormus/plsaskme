@@ -93,9 +93,12 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 - To remove "107." from "107. What's your name?" when gathering questions from the interweebz: 
     CTRL F + regex `^\d+(\.|\,)\s+` (also works with commas, uneven spacing)
 
-### Useful tools not mentioned yet
+### Useful tools/sites not mentioned yet
 - https://regexr.com/
 - https://realfavicongenerator.net/
+- https://pagespeed.web.dev/
+- https://tobiasahlin.com/blog/how-to-animate-box-shadow/, https://shadows.brumm.af/
+- https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
     
 [plsaskme.com]: <https://plsaskme.com>
 [askmepls.com]: <https://askmepls.com>
