@@ -95,10 +95,12 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 
 ### Useful tools/sites not mentioned yet
 - https://regexr.com/
+- https://caniuse.com/
 - https://realfavicongenerator.net/
 - https://pagespeed.web.dev/
 - https://tobiasahlin.com/blog/how-to-animate-box-shadow/, https://shadows.brumm.af/
 - https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
+... and many others.
     
 [plsaskme.com]: <https://plsaskme.com>
 [askmepls.com]: <https://askmepls.com>
