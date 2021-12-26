@@ -36,6 +36,7 @@ if (touchSupported) {
         newTopCard.style.opacity = 1;
 
         currTopCard.style.willChange = "transform, opacity, filter";
+        newTopCard.style.willChange = "opacity";
     }
 
     function move(e) {
