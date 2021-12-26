@@ -6,6 +6,10 @@
             "en": "Tap here for a new question!",
             "et": "Uue küsimuse jaoks kliki siia!"
         },
+        swipeMe: {
+            "en": "Swipe me up for a new question!",
+            "et": "Uue küsimuse jaoks lohista see kaart üles!"
+        },
         spicy: {
             "en": "Spicier questions?",
             "et": "Julgemad küsimused?"
@@ -80,8 +84,8 @@
             spicySwitch.click();
         }
 
-        // Display smth like "Click me for new question" in appropriate lang 
-        currentQ.textContent = dict.tapMe[lang];
+        // Display smth like "Click me for new question" in appropriate lang
+        currentQ.textContent = touchSupported ? dict.swipeMe[lang] : dict.tapMe[lang];
     }
 
 
@@ -95,7 +99,7 @@
         darkText.textContent = dict.lightdark[newLang];
 
         // Update currentQ
-        currentQ.textContent = dict.tapMe[newLang];
+        currentQ.textContent = touchSupported ? dict.swipeMe[lang] : dict.tapMe[lang];
 
         // Update local storage
         const currentSpicy = spicySwitch.checked ? "-spicy" : "";

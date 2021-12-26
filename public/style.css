@@ -26,7 +26,7 @@ html {
     -ms-touch-action: pan-y; */
     touch-action: manipulation;
 
-    text-decoration: manipulation;
+    text-decoration: none;
 }
 
 html {
@@ -111,8 +111,8 @@ body {
 
 /* swipe.js */
 .q-container.flyaway {
-    transition: transform 0.4s;
-    transform: translate(-50%, -300%);
+    transition: transform 0.35s;
+    transform: translate(-50%, -200%);
 }
 
 .q-container.draggable {

@@ -149,29 +149,43 @@
     let savedResult = "";
     let savedResult_langSpicy = "";
 
+    // Load first question on page load
     getNewRandQuestion().then((result) => {
         savedResult = result;
         savedResult_langSpicy = langSpicy();
     });
 
-    // New question with click/tap on question container
-    questionContainer.addEventListener('click', () => {
-        if (langSpicy() === savedResult_langSpicy) {
-            // Use saved result
-            currentQuestionText.textContent = savedResult;
-        } else {
-            // Language or spiciness has changed in between, fetch new
+    
+    if (!touchSupported) {
+
+        // New question with click/tap on question container
+        questionContainer.addEventListener('click', () => {
+            
+            if (langSpicy() === savedResult_langSpicy) {
+                // Use saved result
+                currentQuestionText.textContent = savedResult;
+            } else {
+                // Language or spiciness has changed in between, fetch new
+                getNewRandQuestion().then((result) => {
+                    currentQuestionText.textContent = result;
+                });
+            }
+
+            // Save (fetch) next one
             getNewRandQuestion().then((result) => {
-                currentQuestionText.textContent = result;
+                // console.log("Next question: " + result)
+                savedResult = result;
+                savedResult_langSpicy = langSpicy();
             });
-        }
-
-        // Save (fetch) next one
-        getNewRandQuestion().then((result) => {
-            // console.log("Next question: " + result)
-            savedResult = result;
-            savedResult_langSpicy = langSpicy();
         });
-    });
+    }
+    else {
 
+        // New question with swipe
+        document.addEventListener("newQuestionEvent", () => {
+            console.log("New question w swipe!")
+
+            
+        });
+    }
 })();
