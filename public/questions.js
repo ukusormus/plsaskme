@@ -203,6 +203,7 @@
             newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
             currentCardQuestionText = document.querySelector(".q-container.draggable > p");
 
+            // e.detail is true if called from user_lang: language has changed
             if (e.detail) {
                 getNewRandQuestion().then((result) => {
                     savedResult = result;

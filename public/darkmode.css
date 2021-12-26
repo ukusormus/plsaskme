@@ -38,3 +38,7 @@ body.dark #menu .tgl-skewed:checked+.tgl-btn {
     background: #59d16b;
     filter: grayscale(30%);
 }
+
+body.dark #contact a {
+    color: white;
+}
