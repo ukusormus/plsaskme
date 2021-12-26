@@ -2,7 +2,10 @@ const touchSupported = ('ontouchstart' in document.documentElement);
 
 const newQuestionSwipeEvent = new Event("newQuestionEvent");
 
-window.onerror = function(message) { alert(message); return true; };
+window.onerror = function (msg, url, linenumber) {
+    alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
+    return true;
+}
 
 if (touchSupported) {
     let currTopCard;
