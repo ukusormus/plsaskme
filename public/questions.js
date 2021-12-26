@@ -214,10 +214,9 @@
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
                 });
-                return;
             }
 
-            if (firstTime) {
+            else if (firstTime) {
 
                 getNewRandQuestion().then((result) => {
                     savedResult = result;
