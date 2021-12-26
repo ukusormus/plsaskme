@@ -58,13 +58,15 @@ function end(e) {
         currTopCard.style.transform = "";
         currTopCard.classList.add("flyaway");
 
-        newTopCard.classList.add("draggable");
-        newTopCard.style.setProperty("--after-opacity", "1");
+
 
         // If transition ended (has flown away), make the new one draggable
         currTopCard.addEventListener("transitionend", transition);
 
         function transition() {
+
+            newTopCard.classList.add("draggable");
+            newTopCard.style.setProperty("--after-opacity", "1");
 
             currTopCard.classList.remove("draggable", "flyaway");
             currTopCard.style.opacity = 0;
