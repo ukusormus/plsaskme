@@ -41,7 +41,7 @@ function move(e) {
 
     newTopCard.style.setProperty("--after-opacity", `${change / 100}`);
 
-    e.preventDefault();
+    // e.preventDefault();
 }
 
 function end(e) {
