@@ -213,15 +213,25 @@
                     // console.log("Next question: " + result)
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
-                    newCardQuestionText.textContent = savedResult;
                 });
                 firstTime = false;
             } else {
+
+                if (langSpicy() === savedResult_langSpicy) {
+                    // Use saved result
+                    newCardQuestionText.textContent = savedResult;
+                } else {
+                    // Language or spiciness has changed in between, fetch new
+                    getNewRandQuestion().then((result) => {
+                        newCardQuestionText.textContent = result;
+                    });
+                }
+
                 getNewRandQuestion().then((result) => {
                     // console.log("Next question: " + result)
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
-                    newCardQuestionText.textContent = savedResult;
+                    // newCardQuestionText.textContent = savedResult;
                 });
             }
 
