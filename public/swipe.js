@@ -52,7 +52,7 @@ if (touchSupported) {
 
         currTopCard.style.transform = `translate(-50%, ${-50 - change}%) scale(${1 - (change * 0.005)})`;
         currTopCard.style.opacity = `${1 - (change * 0.005)}`;
-        currTopCard.style.filter = `brightness(${0.95 - (change * 0.005)})`;
+        // currTopCard.style.filter = `brightness(${0.95 - (change * 0.005)})`;
 
         newTopCard.style.setProperty("--after-opacity", `${change / 100}`);
     }
