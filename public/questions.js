@@ -198,23 +198,24 @@
 
         // New question with swipe
         document.addEventListener("newQuestionEvent", () => {
-            // alert("New question w swipe!");
+
             newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
             currentCardQuestionText = document.querySelector(".q-container.draggable > p");
 
             if (firstTime) {
+
                 getNewRandQuestion().then((result) => {
-                    // console.log("Next question: " + result)
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
                     currentCardQuestionText.textContent = savedResult;
                 });
                 getNewRandQuestion().then((result) => {
-                    // console.log("Next question: " + result)
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
                 });
+
                 firstTime = false;
+
             } else {
 
                 if (langSpicy() === savedResult_langSpicy) {
@@ -228,27 +229,10 @@
                 }
 
                 getNewRandQuestion().then((result) => {
-                    // console.log("Next question: " + result)
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
-                    // newCardQuestionText.textContent = savedResult;
                 });
             }
-
-            // if (langSpicy() === savedResult_langSpicy) {
-            //     // Use saved result
-            //     newCardQuestionText.textContent = savedResult;
-            // } else {
-            //     // Language or spiciness has changed in between, fetch new
-            //     getNewRandQuestion().then((result) => {
-            //         newCardQuestionText.textContent = result;
-            //     });
-            // }
-
-            // Save (fetch) next one
-
-
-
         });
     }
 })();
