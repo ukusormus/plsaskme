@@ -197,10 +197,24 @@
         let firstTime = true;
 
         // New question with swipe
-        document.addEventListener("newQuestionEvent", () => {
+        document.addEventListener("newQuestionEvent", (e) => {
+
 
             newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
             currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+
+            if (e.detail) {
+                getNewRandQuestion().then((result) => {
+                    savedResult = result;
+                    savedResult_langSpicy = langSpicy();
+                    newCardQuestionText.textContent = savedResult;
+                });
+                getNewRandQuestion().then((result) => {
+                    savedResult = result;
+                    savedResult_langSpicy = langSpicy();
+                });
+                return;
+            }
 
             if (firstTime) {
 
@@ -213,8 +227,6 @@
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
                 });
-
-                firstTime = false;
 
             } else {
 
@@ -233,6 +245,9 @@
                     savedResult_langSpicy = langSpicy();
                 });
             }
+
+            firstTime = false;
+
         });
     }
 })();

@@ -106,7 +106,8 @@
             document.querySelectorAll(".q-container > p").forEach((text) => {
                 text.textContent = dict.swipeMe[newLang];
             });
-            document.dispatchEvent(newQuestionSwipeEvent);
+            const firstTimeNewQuestionSwipeEvent = new CustomEvent('newQuestionEvent', { detail: true });
+            document.dispatchEvent(firstTimeNewQuestionSwipeEvent);
         }
         // currentQ.textContent = touchSupported ? dict.swipeMe[newLang] : dict.tapMe[newLang];
 
