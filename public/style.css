@@ -37,7 +37,6 @@ html {
 html, body {
     overflow: hidden;
     height: 100%;
-    margin: 0px;
 }
 main {
     height: calc(var(--vh, 1vh) * 100);
