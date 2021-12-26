@@ -141,7 +141,7 @@
     right: 0.5em;
     /* left: 0em; */
     bottom: 0.5em;
-    position: absolute;
+    position: fixed;
 }
 
 #contact a {
