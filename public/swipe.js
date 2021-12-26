@@ -15,13 +15,15 @@ function init() {
 init();
 
 let startingY = newY = 0;
-const threshold = window.innerHeight / 5.5;
+const threshold = window.innerHeight / 6;
 
 function start(e) {
     currTopCard.style.transition = ``;
-    startingY = e.touches[0].clientY;
+    startingY = newY = e.touches[0].clientY;
     console.log("Touch started", startingY);
 
+
+    currTopCard.style.filter = `brightness(${0.95})`;
     newTopCard.style.opacity = 1;
 }
 
@@ -34,10 +36,11 @@ function move(e) {
 
     if (change <= 0) return;
 
-    change = change / window.innerHeight * 100
+    change = change / window.innerHeight * 100;
 
-    currTopCard.style.transform = `translate(-50%, ${-50 - change}%) scale(${1 - (change * 0.005)})`
-    currTopCard.style.opacity = `${1 - (change * 0.005)}`
+    currTopCard.style.transform = `translate(-50%, ${-50 - change}%) scale(${1 - (change * 0.005)})`;
+    currTopCard.style.opacity = `${1 - (change * 0.005)}`;
+    currTopCard.style.filter = `brightness(${0.95 - (change * 0.005)})`;
 
     newTopCard.style.setProperty("--after-opacity", `${change / 100}`);
 
@@ -45,20 +48,19 @@ function move(e) {
 }
 
 function end(e) {
-    console.log("Touch has ended.")
+    console.log("Touch has ended.");
 
     if (startingY - newY < threshold) {
         // Reset position
         currTopCard.style.transition = `transform 0.1s`;
         currTopCard.style.transform = `translate(-50%, -50%)`;
-        currTopCard.style.opacity = `1`;
+        currTopCard.style.opacity = 1;
+        currTopCard.style.filter = "";
         newTopCard.style.setProperty("--after-opacity", "0");
     } else {
         // Make the card <div.q-container.draggable> #current-q </div> fly away
         currTopCard.style.transform = "";
         currTopCard.classList.add("flyaway");
-
-
 
         // If transition ended (has flown away), make the new one draggable
         currTopCard.addEventListener("transitionend", transition);
@@ -70,12 +72,13 @@ function end(e) {
 
             currTopCard.classList.remove("draggable", "flyaway");
             currTopCard.style.opacity = 0;
+            currTopCard.style.filter = "";
 
             currTopCard.removeEventListener("touchstart", start);
             currTopCard.removeEventListener("touchmove", move);
             currTopCard.removeEventListener("touchend", end);
 
-            currTopCard.removeEventListener("transitionend", transition)
+            currTopCard.removeEventListener("transitionend", transition);
 
             init();
         }
