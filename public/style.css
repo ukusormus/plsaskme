@@ -29,10 +29,20 @@ html {
 }
 
 html {
-    overflow: hidden;
+    /* overflow: hidden;
     min-width: 100vw;
-    min-height: 100vh;
-    height: calc(var(--vh, 1vh) * 100); /* Fix Safari */ 
+    min-height: 100vh; */
+    /* Fix Safari */ 
+    /* height: calc(var(--vh, 1vh) * 100);  */
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+main {
+    height: 100%;
+    color: #f0e68c;
 }
 
 body {
