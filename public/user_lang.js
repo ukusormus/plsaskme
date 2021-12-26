@@ -99,7 +99,16 @@
         darkText.textContent = dict.lightdark[newLang];
 
         // Update currentQ
-        currentQ.textContent = touchSupported ? dict.swipeMe[newLang] : dict.tapMe[newLang];
+        // 
+        if (!touchSupported) {
+            currentQ.textContent = dict.tapMe[newLang];
+        } else {
+            document.querySelectorAll(".q-container > p").forEach((text) => {
+                text.textContent = dict.swipeMe[newLang];
+            });
+            document.dispatchEvent(newQuestionSwipeEvent);
+        }
+        // currentQ.textContent = touchSupported ? dict.swipeMe[newLang] : dict.tapMe[newLang];
 
         // Update local storage
         const currentSpicy = spicySwitch.checked ? "-spicy" : "";
