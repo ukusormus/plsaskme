@@ -134,7 +134,7 @@
         // 2.a Reset history if all questions have been already shown (avoids infinite while loop)
         if (qHistory[langSpicy()].length() >= (lastIndex[langSpicy()] + 1)) {
 
-            // Will show the first question, so no chance of "buggy" UX, except when there's only one question
+            // Will show the first question, so no chance of "buggy" UX, except when there's only one question in total
             randomIndex = qHistory[langSpicy()].list()[0];
 
             qHistory[langSpicy()].clear();
