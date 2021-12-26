@@ -2,10 +2,10 @@ const touchSupported = ('ontouchstart' in document.documentElement);
 
 const newQuestionSwipeEvent = new Event("newQuestionEvent");
 
-window.onerror = function (msg, url, linenumber) {
-    alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
-    return true;
-}
+// window.onerror = function (msg, url, linenumber) {
+//     alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
+//     return true;
+// }
 
 if (touchSupported) {
     let currTopCard;
@@ -30,7 +30,7 @@ if (touchSupported) {
     function start(e) {
         currTopCard.style.transition = ``;
         startingY = newY = e.touches[0].clientY;
-        console.log("Touch started", startingY);
+        // console.log("Touch started", startingY);
 
         currTopCard.style.filter = `brightness(${0.95})`;
         newTopCard.style.opacity = 1;
@@ -41,7 +41,7 @@ if (touchSupported) {
 
         let change = startingY - newY;
 
-        console.log("Touch moving, change:", change);
+        // console.log("Touch moving, change:", change);
 
         if (change <= 0) return;
 
@@ -55,7 +55,7 @@ if (touchSupported) {
     }
 
     function end(e) {
-        console.log("Touch has ended.");
+        // console.log("Touch has ended.");
 
         if (startingY - newY < (window.innerHeight / 6)) {
             // Reset position
@@ -65,6 +65,7 @@ if (touchSupported) {
             currTopCard.style.filter = "";
             newTopCard.style.setProperty("--after-opacity", "0");
         } else {
+            document.dispatchEvent(newQuestionSwipeEvent);
             // Make the card <div.q-container.draggable> #current-q </div> fly away
             currTopCard.style.transform = "";
             currTopCard.classList.add("flyaway");
@@ -76,7 +77,7 @@ if (touchSupported) {
             // If transition ended (has flown away), make the new one draggable
             currTopCard.addEventListener("transitionend", transition);
 
-            document.dispatchEvent(newQuestionSwipeEvent);
+
 
             function transition() {
 

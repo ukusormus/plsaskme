@@ -155,12 +155,12 @@
         savedResult_langSpicy = langSpicy();
     });
 
-    
+
     if (!touchSupported) {
 
         // New question with click/tap on question container
         questionContainer.addEventListener('click', () => {
-            
+
             if (langSpicy() === savedResult_langSpicy) {
                 // Use saved result
                 currentQuestionText.textContent = savedResult;
@@ -181,9 +181,62 @@
     }
     else {
 
+        let newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
+        let currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+
+        if (langSpicy() === savedResult_langSpicy) {
+            // Use saved result
+            newCardQuestionText.textContent = savedResult;
+        } else {
+            // Language or spiciness has changed in between, fetch new
+            getNewRandQuestion().then((result) => {
+                newCardQuestionText.textContent = result;
+            });
+        }
+
+        let firstTime = true;
+
         // New question with swipe
         document.addEventListener("newQuestionEvent", () => {
-            alert("New question w swipe!");
+            // alert("New question w swipe!");
+            newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
+            currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+
+            if (firstTime) {
+                getNewRandQuestion().then((result) => {
+                    // console.log("Next question: " + result)
+                    savedResult = result;
+                    savedResult_langSpicy = langSpicy();
+                    currentCardQuestionText.textContent = savedResult;
+                });
+                getNewRandQuestion().then((result) => {
+                    // console.log("Next question: " + result)
+                    savedResult = result;
+                    savedResult_langSpicy = langSpicy();
+                    newCardQuestionText.textContent = savedResult;
+                });
+                firstTime = false;
+            } else {
+                getNewRandQuestion().then((result) => {
+                    // console.log("Next question: " + result)
+                    savedResult = result;
+                    savedResult_langSpicy = langSpicy();
+                    newCardQuestionText.textContent = savedResult;
+                });
+            }
+
+            // if (langSpicy() === savedResult_langSpicy) {
+            //     // Use saved result
+            //     newCardQuestionText.textContent = savedResult;
+            // } else {
+            //     // Language or spiciness has changed in between, fetch new
+            //     getNewRandQuestion().then((result) => {
+            //         newCardQuestionText.textContent = result;
+            //     });
+            // }
+
+            // Save (fetch) next one
+
 
 
         });
