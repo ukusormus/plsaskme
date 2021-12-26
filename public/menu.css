@@ -41,7 +41,7 @@
 }
 
 #menu .menu-items.is-open {
-    position: relative;
+    position: fixed;
 
     display: -webkit-box;
 
