@@ -24,7 +24,7 @@ if (touchSupported) {
     init();
 
     let startingY = newY = 0;
-    const threshold = window.innerHeight / 6; // Card has to be swiped at least threshold px upwards to change card
+    // const threshold = window.innerHeight / 6; // Card has to be swiped at least threshold px upwards to change card
 
 
     function start(e) {
@@ -57,7 +57,7 @@ if (touchSupported) {
     function end(e) {
         console.log("Touch has ended.");
 
-        if (startingY - newY < threshold) {
+        if (startingY - newY < (window.innerHeight / 6)) {
             // Reset position
             currTopCard.style.transition = `transform 0.1s`;
             currTopCard.style.transform = `translate(-50%, -50%)`;
