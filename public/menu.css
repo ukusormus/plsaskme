@@ -49,8 +49,8 @@
 
     display: flex;
 
-    height: 100vh; 
-    height: calc(var(--vh, 1vh) * 100); /* Fix Safari */ 
+    min-height: 100vh; 
+    min-height: calc(var(--vh, 1vh) * 100); /* Fix Safari */ 
     width: 100vw;
 
     overflow-y: auto;
