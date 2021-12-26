@@ -110,7 +110,7 @@ body {
 
 /* swipe.js */
 .q-container.flyaway {
-    transition: transform 0.3s;
+    transition: transform 0.5s;
     transform: translate(-50%, -300%);
 }
 

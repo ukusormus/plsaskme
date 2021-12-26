@@ -48,7 +48,7 @@ function end(e) {
     console.log("Touch has ended.")
 
     if (startingY - newY < threshold) {
-        // reset position
+        // Reset position
         currTopCard.style.transition = `transform 0.1s`;
         currTopCard.style.transform = `translate(-50%, -50%)`;
         currTopCard.style.opacity = `1`;
