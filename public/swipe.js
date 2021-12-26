@@ -35,8 +35,8 @@ if (touchSupported) {
         currTopCard.style.filter = `brightness(${0.95})`;
         newTopCard.style.opacity = 1;
 
-        currTopCard.style.willChange = "transform, opacity, filter";
-        newTopCard.style.willChange = "opacity";
+        // currTopCard.style.willChange = "transform, opacity, filter";
+        // newTopCard.style.willChange = "opacity";
     }
 
     function move(e) {
@@ -94,7 +94,7 @@ if (touchSupported) {
 
                 currTopCard.removeEventListener("transitionend", transition);
 
-                currTopCard.style.willChange = "auto";
+                // currTopCard.style.willChange = "auto";
 
                 init();
             }
