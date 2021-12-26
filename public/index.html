@@ -38,7 +38,7 @@
     <script defer src="./menu_trigger.js"></script>
     <script defer src="./darkmode.js"></script>
     <script defer src="./user_lang.js"></script>
-    
+
     <!-- Displaying & fetching questions -->
     <script defer src="./questions.js"></script>
 
@@ -54,7 +54,7 @@
         /* Deals with different platforms (e.g. Safari) handling vh differently with URL-bar etc. */
 
         // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-        let vh = window.innerHeight * 0.01;
+        let vh = window.clientHeight * 0.01;
         // Then we set the value in the --vh custom property to the root of the document
         document.documentElement.style.setProperty('--vh', `${vh}px`);
 
