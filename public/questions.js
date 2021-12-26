@@ -95,18 +95,32 @@
         "en-spicy": 0
     }
 
+    let savedResult = "";
+    let savedResult_langSpicy = "";
+
     getLastQuestionIndex("et", false).then((result) => {
         lastIndex["et"] = result;
-    });
-    getLastQuestionIndex("et", true).then((result) => {
-        lastIndex["et-spicy"] = result;
-    });
-    getLastQuestionIndex("en", false).then((result) => {
-        lastIndex["en"] = result;
-    });
-    getLastQuestionIndex("en", true).then((result) => {
-        lastIndex["en-spicy"] = result;
-    });
+
+        getLastQuestionIndex("et", true).then((result) => {
+            lastIndex["et-spicy"] = result;
+
+            getLastQuestionIndex("en", false).then((result) => {
+                lastIndex["en"] = result;
+
+                getLastQuestionIndex("en", true).then((result) => {
+                    lastIndex["en-spicy"] = result;
+
+                    // Load first question on page load
+                    getNewRandQuestion().then((result) => {
+                        savedResult = result;
+                        savedResult_langSpicy = langSpicy();
+                    });
+                });
+            });
+
+        });
+
+    })
 
 
     /**
@@ -142,18 +156,6 @@
         // 5. Return question text
         return question;
     }
-
-
-    // New question with click/tap on question container
-
-    let savedResult = "";
-    let savedResult_langSpicy = "";
-
-    // Load first question on page load
-    getNewRandQuestion().then((result) => {
-        savedResult = result;
-        savedResult_langSpicy = langSpicy();
-    });
 
 
     if (!touchSupported) {
@@ -199,21 +201,29 @@
         // New question with swipe
         document.addEventListener("newQuestionEvent", (e) => {
 
+            // console.log("Inside addEventListener")
 
             newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
             currentCardQuestionText = document.querySelector(".q-container.draggable > p");
 
+            // console.log("currentCard (draggable): ", currentCardQuestionText.textContent)
+            // console.log("newCard (next one up): ", newCardQuestionText.textContent)
+
+
             // e.detail is true if called from user_lang: language has changed
             if (e.detail) {
+                // console.log("Language has changed!")
                 getNewRandQuestion().then((result) => {
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
                     newCardQuestionText.textContent = savedResult;
+
+                    getNewRandQuestion().then((result) => {
+                        savedResult = result;
+                        savedResult_langSpicy = langSpicy();
+                    });
                 });
-                getNewRandQuestion().then((result) => {
-                    savedResult = result;
-                    savedResult_langSpicy = langSpicy();
-                });
+
             }
 
             else if (firstTime) {
@@ -222,11 +232,13 @@
                     savedResult = result;
                     savedResult_langSpicy = langSpicy();
                     currentCardQuestionText.textContent = savedResult;
+
+                    getNewRandQuestion().then((result) => {
+                        savedResult = result;
+                        savedResult_langSpicy = langSpicy();
+                    });
                 });
-                getNewRandQuestion().then((result) => {
-                    savedResult = result;
-                    savedResult_langSpicy = langSpicy();
-                });
+
 
             } else {
 
