@@ -99,7 +99,7 @@
         darkText.textContent = dict.lightdark[newLang];
 
         // Update currentQ
-        currentQ.textContent = touchSupported ? dict.swipeMe[lang] : dict.tapMe[lang];
+        currentQ.textContent = touchSupported ? dict.swipeMe[newLang] : dict.tapMe[newLang];
 
         // Update local storage
         const currentSpicy = spicySwitch.checked ? "-spicy" : "";

@@ -45,7 +45,7 @@
 
 
     // Shortcuts to DOM elements
-    const questionContainer = document.querySelector(".q-container");
+    const questionContainer = document.querySelector(".q-container.draggable");
     const currentQuestionText = document.querySelector("#current-q");
     const spicySwitch = document.querySelector("#spicy");
     const langSwitch = document.querySelector("#lang");
@@ -183,9 +183,9 @@
 
         // New question with swipe
         document.addEventListener("newQuestionEvent", () => {
-            console.log("New question w swipe!")
+            alert("New question w swipe!");
 
-            
+
         });
     }
 })();
