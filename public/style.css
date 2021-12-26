@@ -37,12 +37,13 @@ html {
 }
 
 html, body {
+    overflow: hidden;
     height: 100%;
     margin: 0px;
 }
 main {
     height: 100%;
-    color: #f0e68c;
+    background-color: #f0e68c;
 }
 
 body {
