@@ -219,11 +219,11 @@
 
                 if (langSpicy() === savedResult_langSpicy) {
                     // Use saved result
-                    newCardQuestionText.textContent = savedResult;
+                    currentCardQuestionText.textContent = savedResult;
                 } else {
                     // Language or spiciness has changed in between, fetch new
                     getNewRandQuestion().then((result) => {
-                        newCardQuestionText.textContent = result;
+                        currentCardQuestionText.textContent = result;
                     });
                 }
 
