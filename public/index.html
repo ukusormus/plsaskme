@@ -65,6 +65,10 @@
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
+
+        document.body.scroll = "no";
+        document.body.style.overflow = 'hidden';
+        document.height = window.innerHeight;
     </script>
 
 </head>
