@@ -24,9 +24,9 @@ html {
     /* Users can't zoom on mobile */
     /* touch-action: pan-y;
     -ms-touch-action: pan-y; */
-    touch-action: none;
+    touch-action: manipulation;
 
-    text-decoration: none;
+    text-decoration: manipulation;
 }
 
 html {
