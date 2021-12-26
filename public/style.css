@@ -26,6 +26,7 @@ html {
     touch-action: pan-y;
 
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
@@ -168,6 +169,7 @@ body {
 #current-q, #next-q {
     font-size: calc(3vw + 2.9vh);
     margin: 0.2em;
+    word-break: break-word;
 }
 
 
