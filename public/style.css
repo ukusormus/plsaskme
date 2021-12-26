@@ -28,14 +28,6 @@ html {
     text-decoration: none;
 }
 
-html {
-    /* overflow: hidden;
-    min-width: 100vw;
-    min-height: 100vh; */
-    /* Fix Safari */ 
-    /* height: calc(var(--vh, 1vh) * 100);  */
-}
-
 html, body {
     overflow: hidden;
     height: 100%;
@@ -43,7 +35,6 @@ html, body {
 }
 main {
     height: 100%;
-    background-color: #f0e68c;
 }
 
 body {
