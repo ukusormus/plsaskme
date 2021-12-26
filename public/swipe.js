@@ -11,17 +11,16 @@ function init() {
     currTopCard.addEventListener("touchend", end);
 }
 
-
 init();
 
 let startingY = newY = 0;
-const threshold = window.innerHeight / 6;
+const threshold = window.innerHeight / 6; // Card has to be swiped at least threshold px upwards to change card
+
 
 function start(e) {
     currTopCard.style.transition = ``;
     startingY = newY = e.touches[0].clientY;
     console.log("Touch started", startingY);
-
 
     currTopCard.style.filter = `brightness(${0.95})`;
     newTopCard.style.opacity = 1;
