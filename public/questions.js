@@ -87,6 +87,41 @@
         return parseInt(await (await fetch(url)).text()) - 1;
     }
 
+    /**
+     * @returns A random question that isn't in history
+     */
+    async function getNewRandQuestion() {
+
+        // 1. Generate random index (min & max inclusive)
+        let randomIndex = random(0, lastIndex[langSpicy()]);
+
+        // 2.a Reset history if all questions have been already shown (avoids infinite while loop)
+        if (qHistory[langSpicy()].length() >= (lastIndex[langSpicy()] + 1)) {
+
+            // Will show the first question, so no chance of "buggy" UX, except when there's only one question in total
+            randomIndex = qHistory[langSpicy()].list()[0];
+
+            qHistory[langSpicy()].clear();
+        }
+        // 2.b Else, generate new random index until one found that isn't in history
+        else
+            while (qHistory[langSpicy()].contains(randomIndex)) {
+                randomIndex = random(0, lastIndex[langSpicy()]);
+            }
+
+        // 3. Get a question by that index
+        const url = `${document.location.origin}/questions/${langSpicy()}/${randomIndex}`;
+        const question = (await fetch(url)).text()
+
+        // console.log(question);
+
+        // 4. Save that question to history
+        qHistory[langSpicy()].insert(randomIndex);
+
+        // 5. Return question text
+        return question;
+    }
+
     // Save last indexes (question count - 1) while loading page
     let lastIndex = {
         "et": 0,
@@ -114,6 +149,109 @@
                     getNewRandQuestion().then((result) => {
                         savedResult = result;
                         savedResult_langSpicy = langSpicy();
+
+                        if (!touchSupported) {
+
+                            // New question with click/tap on question container
+                            questionContainer.addEventListener('click', () => {
+
+                                if (langSpicy() === savedResult_langSpicy) {
+                                    // Use saved result
+                                    currentQuestionText.textContent = savedResult;
+                                } else {
+                                    // Language or spiciness has changed in between, fetch new
+                                    getNewRandQuestion().then((result) => {
+                                        currentQuestionText.textContent = result;
+                                    });
+                                }
+
+                                // Save (fetch) next one
+                                getNewRandQuestion().then((result) => {
+                                    // console.log("Next question: " + result)
+                                    savedResult = result;
+                                    savedResult_langSpicy = langSpicy();
+                                });
+                            });
+                        } else {
+
+                            let newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
+                            let currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+
+                            if (langSpicy() === savedResult_langSpicy) {
+                                // Use saved result
+                                newCardQuestionText.textContent = savedResult;
+                            } else {
+                                // Language or spiciness has changed in between, fetch new
+                                getNewRandQuestion().then((result) => {
+                                    newCardQuestionText.textContent = result;
+                                });
+                            }
+
+                            let firstTime = true;
+
+                            // New question with swipe
+                            document.addEventListener("newQuestionEvent", (e) => {
+
+                                // console.log("Inside addEventListener")
+
+                                newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
+                                currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+
+                                // console.log("currentCard (draggable): ", currentCardQuestionText.textContent)
+                                // console.log("newCard (next one up): ", newCardQuestionText.textContent)
+
+
+                                // e.detail is true if called from user_lang: language has changed
+                                if (e.detail) {
+                                    // console.log("Language has changed!")
+                                    getNewRandQuestion().then((result) => {
+                                        savedResult = result;
+                                        savedResult_langSpicy = langSpicy();
+                                        newCardQuestionText.textContent = savedResult;
+
+                                        getNewRandQuestion().then((result) => {
+                                            savedResult = result;
+                                            savedResult_langSpicy = langSpicy();
+                                        });
+                                    });
+
+                                } else if (firstTime) {
+
+                                    getNewRandQuestion().then((result) => {
+                                        savedResult = result;
+                                        savedResult_langSpicy = langSpicy();
+                                        currentCardQuestionText.textContent = savedResult;
+
+                                        getNewRandQuestion().then((result) => {
+                                            savedResult = result;
+                                            savedResult_langSpicy = langSpicy();
+                                        });
+                                    });
+
+
+                                } else {
+
+                                    if (langSpicy() === savedResult_langSpicy) {
+                                        // Use saved result
+                                        currentCardQuestionText.textContent = savedResult;
+                                    } else {
+                                        // Language or spiciness has changed in between, fetch new
+                                        getNewRandQuestion().then((result) => {
+                                            currentCardQuestionText.textContent = result;
+                                        });
+                                    }
+
+                                    getNewRandQuestion().then((result) => {
+                                        savedResult = result;
+                                        savedResult_langSpicy = langSpicy();
+                                    });
+                                }
+
+                                firstTime = false;
+
+                            });
+                        }
+
                     });
                 });
             });
@@ -121,145 +259,4 @@
         });
 
     })
-
-
-    /**
-     * @returns A random question that isn't in history
-     */
-    async function getNewRandQuestion() {
-
-        // 1. Generate random index (min & max inclusive)
-        let randomIndex = random(0, lastIndex[langSpicy()]);
-
-        // 2.a Reset history if all questions have been already shown (avoids infinite while loop)
-        if (qHistory[langSpicy()].length() >= (lastIndex[langSpicy()] + 1)) {
-
-            // Will show the first question, so no chance of "buggy" UX, except when there's only one question in total
-            randomIndex = qHistory[langSpicy()].list()[0];
-
-            qHistory[langSpicy()].clear();
-        }
-        // 2.b Else, generate new random index until one found that isn't in history
-        else while (qHistory[langSpicy()].contains(randomIndex)) {
-            randomIndex = random(0, lastIndex[langSpicy()]);
-        }
-
-        // 3. Get a question by that index
-        const url = `${document.location.origin}/questions/${langSpicy()}/${randomIndex}`;
-        const question = (await fetch(url)).text()
-
-        // console.log(question);
-
-        // 4. Save that question to history
-        qHistory[langSpicy()].insert(randomIndex);
-
-        // 5. Return question text
-        return question;
-    }
-
-
-    if (!touchSupported) {
-
-        // New question with click/tap on question container
-        questionContainer.addEventListener('click', () => {
-
-            if (langSpicy() === savedResult_langSpicy) {
-                // Use saved result
-                currentQuestionText.textContent = savedResult;
-            } else {
-                // Language or spiciness has changed in between, fetch new
-                getNewRandQuestion().then((result) => {
-                    currentQuestionText.textContent = result;
-                });
-            }
-
-            // Save (fetch) next one
-            getNewRandQuestion().then((result) => {
-                // console.log("Next question: " + result)
-                savedResult = result;
-                savedResult_langSpicy = langSpicy();
-            });
-        });
-    }
-    else {
-
-        let newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
-        let currentCardQuestionText = document.querySelector(".q-container.draggable > p");
-
-        if (langSpicy() === savedResult_langSpicy) {
-            // Use saved result
-            newCardQuestionText.textContent = savedResult;
-        } else {
-            // Language or spiciness has changed in between, fetch new
-            getNewRandQuestion().then((result) => {
-                newCardQuestionText.textContent = result;
-            });
-        }
-
-        let firstTime = true;
-
-        // New question with swipe
-        document.addEventListener("newQuestionEvent", (e) => {
-
-            // console.log("Inside addEventListener")
-
-            newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
-            currentCardQuestionText = document.querySelector(".q-container.draggable > p");
-
-            // console.log("currentCard (draggable): ", currentCardQuestionText.textContent)
-            // console.log("newCard (next one up): ", newCardQuestionText.textContent)
-
-
-            // e.detail is true if called from user_lang: language has changed
-            if (e.detail) {
-                // console.log("Language has changed!")
-                getNewRandQuestion().then((result) => {
-                    savedResult = result;
-                    savedResult_langSpicy = langSpicy();
-                    newCardQuestionText.textContent = savedResult;
-
-                    getNewRandQuestion().then((result) => {
-                        savedResult = result;
-                        savedResult_langSpicy = langSpicy();
-                    });
-                });
-
-            }
-
-            else if (firstTime) {
-
-                getNewRandQuestion().then((result) => {
-                    savedResult = result;
-                    savedResult_langSpicy = langSpicy();
-                    currentCardQuestionText.textContent = savedResult;
-
-                    getNewRandQuestion().then((result) => {
-                        savedResult = result;
-                        savedResult_langSpicy = langSpicy();
-                    });
-                });
-
-
-            } else {
-
-                if (langSpicy() === savedResult_langSpicy) {
-                    // Use saved result
-                    currentCardQuestionText.textContent = savedResult;
-                } else {
-                    // Language or spiciness has changed in between, fetch new
-                    getNewRandQuestion().then((result) => {
-                        currentCardQuestionText.textContent = result;
-                    });
-                }
-
-                getNewRandQuestion().then((result) => {
-                    savedResult = result;
-                    savedResult_langSpicy = langSpicy();
-                });
-            }
-
-            firstTime = false;
-
-        });
-    }
 })();
