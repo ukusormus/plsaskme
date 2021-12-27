@@ -5,17 +5,26 @@
     const urlbarMeta = document.querySelector("meta[name='theme-color']");
 
 
-    const darkmodeInLocalStorage = localStorage.getItem("darkmode");
+    let darkmodeInLocalStorage = localStorage.getItem("darkmode"); // "true", "false" or null
 
-    if (darkmodeInLocalStorage === null) { // first time to visit
-        localStorage.setItem("darkmode", "false")
+    // First time to visit
+    if (darkmodeInLocalStorage === null) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Dark mode enabled in OS
+            localStorage.setItem("darkmode", "true")
+            darkmodeInLocalStorage = "true";
+        } else {
+            localStorage.setItem("darkmode", "false")
+        }
     }
-    // Not first time...
-    else if (darkmodeInLocalStorage === "true") {
+    // Not first time to visit, enabled // or first time to visit and enabled in OS
+    if (darkmodeInLocalStorage === "true") {
         document.body.classList.add("dark");
         urlbarMeta.setAttribute("content", "#202225");
         darkSwitch.click();
-    } else {
+    }
+    // Not first time to visit, disabled // or first time to visit and disabled in OS
+    else {
         document.body.classList.remove("dark");
         urlbarMeta.setAttribute("content", "#cccccc");
     }
@@ -26,10 +35,10 @@
 
         if (document.body.classList.contains("dark")) {
             urlbarMeta.setAttribute("content", "#202225");
-            localStorage["darkmode"] = "true";
+            localStorage.setItem("darkmode", "true");
         } else {
             urlbarMeta.setAttribute("content", "#cccccc");
-            localStorage["darkmode"] = "false";
+            localStorage.setItem("darkmode", "false");
         }
     });
 
