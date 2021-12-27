@@ -8,7 +8,7 @@
         },
         swipeMe: {
             "en": "Swipe me up for a new question!",
-            "et": "Uue küsimuse jaoks viipa see kaart ülespoole!"
+            "et": "Uue küsimuse jaoks viipa mind üles!"
         },
         spicy: {
             "en": "Spicier questions?",
