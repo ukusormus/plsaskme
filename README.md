@@ -1,17 +1,30 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/conversee/deploys)
 # 👉 [plsaskme.com]
 
-**💬 A random question generator.** 
+**💬 Fun & spicy random question generator.** 
+
+
+#### Video Demo:
+
+
+<a href="https://youtu.be/TVq9XUjNVKc">
+    <img src="https://img.youtube.com/vi/TVq9XUjNVKc/maxresdefault.jpg" width="30%">
+    <br>
+    https://youtu.be/TVq9XUjNVKc
+</a>
 
 <br>
 
-Never have any boring conversations again! 🎉 Break that akward silence at your next party.
 
-Fun (and spicy) random questions for friends, couples, or maybe even yourself (who knows!).
+#### Description:
 
-<br>
+Never have any boring conversations again! 🎉 
 
-*Deployment status:*
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/conversee/deploys)
+Break the akward silence at your next party or family gathering, and get the conversation going.
+
+For friends, couples, or maybe even yourself (who knows!).
+
+
 
 <br>
 
@@ -74,7 +87,7 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 <br>
 
 ### The way questions reach my happy users:
-0. **Gathering questions:** Google Forms, friends, other websites
+0. **Gathering questions:** Google Forms, friends, other websites and question cards
 1. **Sorting & maintaining questions:** Google Sheets
 2. **Adding the questions to GitHub folder "public/questions":**
     2.a. Download questions to local computer as a `.tsv` file (*e.g.* `en-spicy.tsv`)
