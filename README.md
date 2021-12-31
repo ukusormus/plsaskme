@@ -1,10 +1,12 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/conversee/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/plsaskme/deploys)
 # 👉 [plsaskme.com]
 
-**💬 Fun & spicy random question generator.** 
+**💬 A fun & spicy random question generator.** 
 
+<br>
+<br>
 
-#### Video Demo:
+## Video Demo:
 
 
 <a href="https://youtu.be/TVq9XUjNVKc">
@@ -14,43 +16,48 @@
 </a>
 
 <br>
+<br>
 
+## Description:
 
-#### Description:
+ 
 
-Never have any boring conversations again! 🎉 
+Break the akward silence at your next party – never have any boring conversations again! 🎉 For friends, couples, family...
 
-Break the akward silence at your next party or family gathering, and get the conversation going.
-
-For friends, couples, or maybe even yourself (who knows!).
-
-
+As simple as "swipe up" for a new question ("click" for non-touch devices).
 
 <br>
+
+### Why?
 
 Final project for Harvard's MOOC "__[CS50x]__", 2020-21.
 
 *(As of Dec '21, also going to be submitted to Estonian harpi.com web-app programming competition.)*
 
+<br>
+<br>
 
-README todo: add some images here
-https://github.com/othneildrew/Best-README-Template
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links
-<br>
-<br>
 ## Features
-- **+250 questions**
-- **Beautiful & functional**; **mobile-first**, but responsive for other screen sizes as well
-- **Two languages** (English, Estonian)
-- Choose between **usual and *spicy* mode** 🌶 (for somewhat naughtier questions)
-- **Dark mode** available
-- **Automatically detects language** based on country (IP)
-- **Saves preferences between sessions** (language & spiciness, already asked questions)
-<br>
-<hr>
+✅ +250 questions 
+
+✅ Responsive (mobile-first). Minimalistic 
+
+✅ Two languages – English and Estonian  
+
+✅ Normal and "spicy" 🌶 questions 
+
+✅ Dark mode available 
+
+✅ Automatically detects language based on country (IP-address) and dark mode based on OS settings
+
+✅ Preferences and question history are saved between sessions 
+
 <br>
 
-## Technical details and a bit about the process
+<br>
+
+# Technical details, rant and a bit about the process
+<br>
 
 ### Stack
 This project is built on the premise that __there is no database and backend processing *per se*__, so the whole thing can be deployed as a static site. Why pay for hosting if I don't have to?
@@ -66,10 +73,11 @@ I still pay for two custom domain names, because they're cool together (at least
 
 <br>
 
-__Visual Studio Code__, __Live Extension__ and __Google Chrome Dev__,  used for local development. 
+__Visual Studio Code__, its __Live Extension__ and __Google Chrome Dev__  used for local development. 
 
-Still needed to deploy a lot because some things (specifically CSS) didn't work the same way on my laptop and phone. Fortunately that wasn't a problem, since with every push, Netlify builds and deploys automatically, and that takes about 13 seconds.
+I still have needed to deploy a lot because some things (specifically CSS) don't just work the same way on my laptop (Windows) and iPhone. Fortunately that wasn't a big hustle, since with every push, Netlify builds and deploys automatically, and that takes about 5 to 10 seconds.
 
+<br>
 <br>
 
 ### About some challenges I encountered:
@@ -85,19 +93,24 @@ Still needed to deploy a lot because some things (specifically CSS) didn't work 
 A good tool for me is taking a step back, using paper and pencil to sketch out stuff.
 
 <br>
+<br>
 
 ### The way questions reach my happy users:
 0. **Gathering questions:** Google Forms, friends, other websites and question cards
 1. **Sorting & maintaining questions:** Google Sheets
-2. **Adding the questions to GitHub folder "public/questions":**
+2. **Adding the questions to as static assets to `/public/questions/(lang)/(question nr)`:**
+
     2.a. Download questions to local computer as a `.tsv` file (*e.g.* `en-spicy.tsv`)
-    2.b. Feed this file to `q-putter.mjs`, which overwrites local "public/questions/"; add, commit, push.
-    2.c. Netlify deploys automatically on every push, saves questions from GitHub folder "public/questons" as static assets
-        (e.g. there's a question at [plsaskme.com/questions/en-spicy/17])
+
+    2.b. Feed this file to `q-putter.mjs`, which overwrites local `public/questions/...` contents; add, commit, push to GitHub.
+
+    2.c. Netlify deploys automatically on every push, saves questions from GitHub folder `public/questions` as static assets
+        (e.g. there's a question at `/questions/en-spicy/17`)
 3. **Fetching & displaying questions:** JavaScript Fetch API + local storage as question history mechanism.
 
 `q-putter.mjs` is a Node.js script (uses Node module `fs-extra`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
 
+<br>
 <br>
 
 ### Some useful stuff for Google Sheets:
@@ -105,6 +118,9 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 - Data -> Data Cleanup -> Remove duplicates
 - To remove "107." from "107. What's your name?" when gathering questions from the interweebz: 
     CTRL F + regex `^\d+(\.|\,)\s+` (also works with commas, uneven spacing)
+
+<br>
+<br>
 
 ### Useful tools/sites not mentioned yet
 - https://regexr.com/
@@ -119,3 +135,9 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 [askmepls.com]: <https://askmepls.com>
 [CS50x]: <https://cs50.harvard.edu/x/2021>
 [ipregistry.co]: <https://ipregistry.co>
+
+<br>
+<br>
+
+## Future
+I've got some feature requests already, like seeing question history. Let's see.
