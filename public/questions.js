@@ -122,6 +122,17 @@
         return question;
     }
 
+    // Utility function to wait until user_lang setup done
+    function until(conditionFunction) {
+
+        const poll = resolve => {
+            if (conditionFunction()) resolve();
+            else setTimeout(_ => poll(resolve), 400);
+        }
+
+        return new Promise(poll);
+    }
+
     // Save last indexes (question count - 1) while loading page
     let lastIndex = {
         "et": 0,
@@ -145,7 +156,7 @@
                 getLastQuestionIndex("en", true).then((result) => {
                     lastIndex["en-spicy"] = result;
 
-                    console.log("setupDone: ", setupDone);
+                    (async () => { await until(_ => setupDone === true) })();
 
                     // Load first question on page load
                     getNewRandQuestion().then((result) => {
