@@ -1,4 +1,7 @@
 /* Persistent UI language */
+
+let setupDone = false;
+
 (() => {
 
     const dict = {
@@ -86,6 +89,8 @@
 
         // Display smth like "Click me for new question" in appropriate lang
         currentQ.textContent = touchSupported ? dict.swipeMe[lang] : dict.tapMe[lang];
+
+        setupDone = true;
     }
 
 

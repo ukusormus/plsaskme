@@ -145,6 +145,8 @@
                 getLastQuestionIndex("en", true).then((result) => {
                     lastIndex["en-spicy"] = result;
 
+                    console.log("setupDone: ", setupDone);
+
                     // Load first question on page load
                     getNewRandQuestion().then((result) => {
                         savedResult = result;
