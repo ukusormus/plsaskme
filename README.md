@@ -122,6 +122,7 @@ A great tool that is working out for me: taking a step back, using paper and pen
 `q-putter.mjs` is a Node.js script (uses Node modules `fs-extra` and `nreadlines`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
 
 _Note_: I wanted to try out Node.js (and the "everything can be written in JavaScript" adage), that's why `q-putter` is in Node. May rewrite in Python in the future, would seem more logical and purer to me.
+To update all questions at once: `find *.tsv -exec node q-putter.mjs {} \;`
 
 <br>
 <br>
