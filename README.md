@@ -1,5 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/plsaskme/deploys)
-# 👉 [plsaskme.com]
+# 👉 [plsaskme.com] [![Netlify Status](https://api.netlify.com/api/v1/badges/9c1ee742-e7f5-45a9-b093-d2defe49339c/deploy-status)](https://app.netlify.com/sites/plsaskme/deploys)
 
 **💬 A fun & spicy random question generator.** 
 
@@ -119,7 +118,7 @@ A great tool that is working out for me: taking a step back, using paper and pen
         (e.g. there's a question at `/questions/en-spicy/17`)
 3. **Fetching & displaying questions:** JavaScript Fetch API + local storage as question history mechanism.
 
-`q-putter.mjs` is a Node.js script (uses Node module `fs-extra`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
+`q-putter.mjs` is a Node.js script (uses Node modules `fs-extra` and `nreadlines`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
 
 _Note_: I wanted to try out Node.js (and the "everything can be written in JavaScript" adage), that's why `q-putter` is in Node. May rewrite in Python in the future, seems more logical and purer to me.
 
