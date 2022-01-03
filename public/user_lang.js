@@ -29,16 +29,16 @@ let setupDone = false;  // used in questions.js
 
 
     // Switches
-    const spicySwitch = document.querySelector("#spicy");
-    const langSwitch = document.querySelector("#lang");
+    const spicySwitch = $("#spicy");
+    const langSwitch = $("#lang");
 
     // Switch texts
-    const spicyText = document.querySelector("#spicy-section > h4");
-    const langText = document.querySelector("#lang-section > h4");
-    const darkText = document.querySelector("#darkmode-section > h4")
+    const spicyText = $("#spicy-section > h4");
+    const langText = $("#lang-section > h4");
+    const darkText = $("#darkmode-section > h4")
 
 
-    const currentQ = document.querySelector("#current-q");
+    const currentQ = $("#current-q");
     let langSpicy = localStorage.getItem("lang-spicy");
 
 
@@ -108,7 +108,7 @@ let setupDone = false;  // used in questions.js
         if (!touchSupported) {
             currentQ.textContent = dict.tapMe[newLang];
         } else {
-            document.querySelectorAll(".q-container > p").forEach((text) => {
+            $$(".q-container > p").forEach((text) => {
                 text.textContent = dict.swipeMe[newLang];
             });
             const firstTimeNewQuestionSwipeEvent = new CustomEvent('newQuestionEvent', { detail: true });

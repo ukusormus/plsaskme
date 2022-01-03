@@ -1,8 +1,8 @@
 /* Persistent dark-mode */
 (() => {
 
-    const darkSwitch = document.querySelector("#darkmode-section > label");
-    const urlbarMeta = document.querySelector("meta[name='theme-color']");
+    const darkSwitch = $("#darkmode-section > label");
+    const urlbarMeta = $("meta[name='theme-color']");
 
 
     let darkmodeInLocalStorage = localStorage.getItem("darkmode"); // "true", "false" or null

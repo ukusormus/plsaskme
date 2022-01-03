@@ -45,10 +45,10 @@
 
 
     // Shortcuts to DOM elements
-    const questionContainer = document.querySelector(".q-container.draggable");
-    const currentQuestionText = document.querySelector("#current-q");
-    const spicySwitch = document.querySelector("#spicy");
-    const langSwitch = document.querySelector("#lang");
+    const questionContainer = $(".q-container.draggable");
+    const currentQuestionText = $("#current-q");
+    const spicySwitch = $("#spicy");
+    const langSwitch = $("#lang");
 
     // Bilingual right now, may be updated in the future
     function currentLang() {
@@ -188,8 +188,8 @@
                                 });
                             } else {
 
-                                let newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
-                                let currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+                                let newCardQuestionText = $(".q-container:not(.draggable) > p");
+                                let currentCardQuestionText = $(".q-container.draggable > p");
 
                                 if (langSpicy() === savedResult_langSpicy) {
                                     // Use saved result
@@ -208,8 +208,8 @@
 
                                     // console.log("Inside addEventListener")
 
-                                    newCardQuestionText = document.querySelector(".q-container:not(.draggable) > p");
-                                    currentCardQuestionText = document.querySelector(".q-container.draggable > p");
+                                    newCardQuestionText = $(".q-container:not(.draggable) > p");
+                                    currentCardQuestionText = $(".q-container.draggable > p");
 
                                     // console.log("currentCard (draggable): ", currentCardQuestionText.textContent)
                                     // console.log("newCard (next one up): ", newCardQuestionText.textContent)

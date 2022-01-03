@@ -39,7 +39,7 @@
     // Add random value to each card: unique color, transform (rotation, position) and transition time
     let tempColors = Array.from(pallettes[random(0, pallettes.length - 1)]);
 
-    const allCards = document.querySelectorAll(".cardstack");
+    const allCards = $$(".cardstack");
 
     for (let i = 0; i < allCards.length; i++) {
 

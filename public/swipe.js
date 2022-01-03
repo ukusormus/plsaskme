@@ -1,3 +1,9 @@
+/* Makes the top card swipable and emits newQuestionEvent when swipe successful */
+
+// First script loaded
+$ = document.querySelector.bind(document)
+$$ = document.querySelectorAll.bind(document)
+
 const touchSupported = ('ontouchstart' in document.documentElement);
 
 const newQuestionSwipeEvent = new Event("newQuestionEvent");
@@ -13,8 +19,8 @@ if (touchSupported) {
 
     function init() {
 
-        currTopCard = document.querySelector(".q-container.draggable");
-        newTopCard = document.querySelector(".q-container:not(.draggable)");
+        currTopCard = $(".q-container.draggable");
+        newTopCard = $(".q-container:not(.draggable)");
 
         currTopCard.addEventListener("touchstart", start);
         currTopCard.addEventListener("touchmove", move);

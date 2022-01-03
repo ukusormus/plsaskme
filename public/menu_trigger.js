@@ -1,10 +1,10 @@
 /* Menu trigger */
 (() => {
 
-    const hamburgerMenu = document.querySelector(".menu-trigger");
-    const menuItems = document.querySelector(".menu-items");
+    const hamburgerMenu = $(".menu-trigger");
+    const menuItems = $(".menu-items");
 
-    const clickable = document.querySelector("#menu-clickable-area")
+    const clickable = $("#menu-clickable-area")
 
     clickable.addEventListener("click", () => {
         hamburgerMenu.classList.toggle("is-open");
