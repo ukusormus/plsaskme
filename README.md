@@ -83,7 +83,8 @@ Currently trying out [plausible.io] 30-day trial for analytics. I'll see what I'
 
 <br>
 
-__Visual Studio Code__, its __Live Extension__ and __Google Chrome Dev__  used for local development. 
+_Visual Studio Code_ (including extensions: _Live Extension_ and _JS & CSS Minifier (Minify)_) used for development. CSS bundling & minifying is done by Netlify.
+
 
 I still have needed to deploy a lot because some things (specifically CSS) don't just work the same way on my laptop and phone. Fortunately that hasn't been too much of a hustle, since with every push to GitHub, Netlify builds and deploys automatically, and that takes about 5 to 10 seconds.
 
