@@ -1,6 +1,6 @@
 /* Persistent UI language */
 
-let setupDone = false;
+let setupDone = false;  // used in questions.js
 
 (() => {
 

@@ -24,15 +24,23 @@
 
 Break the akward silence at your next party – never have any boring conversations again! 🎉 For friends, couples, family...
 
-As simple as "swipe up" for a new question ("click" for non-touch devices).
+As simple as "swipe" for a new question ("click" for non-touch devices).
 
 <br>
 
-### Why?
+#### Author:
 
-Final project for Harvard's MOOC "__[CS50x]__", 2020-21.
+- Uku Sõrmus (GitHub username: 3xploit-hunt)
 
-*(As of Dec '21, also going to be submitted to Estonian harpi.com web-app programming competition.)*
+<br>
+
+#### Why?
+
+1. Final project for Harvard's MOOC __[CS50x]__ 2020-21.
+
+2. Entry to __[harpi.com]__ web-app programming competition.
+
+3. Just for fun and personal need!
 
 <br>
 <br>
@@ -66,31 +74,34 @@ This project is built on the premise that __there is no database and backend pro
 - Static hosting: **Netlify** (free plan)
 - *Well, where are the questions?* As static assets, see [The way questions reach my happy users](#the-way-questions-reach-my-happy-users).
 
-
-For country detection, [ipregistry.co] API (fast, 100,000 requests for free).
+<br>
 
 I still pay for two custom domain names, because they're cool together (at least I hope): __[askmepls.com]__ and __[plsaskme.com]__
+
+For country detection, [ipregistry.co] API is used (fast, 100,000 requests for free).
+Currently trying out [plausible.io] 30-day trial for analytics. I'll see what I'll do about it.
+
 
 <br>
 
 __Visual Studio Code__, its __Live Extension__ and __Google Chrome Dev__  used for local development. 
 
-I still have needed to deploy a lot because some things (specifically CSS) don't just work the same way on my laptop (Windows) and iPhone. Fortunately that wasn't a big hustle, since with every push, Netlify builds and deploys automatically, and that takes about 5 to 10 seconds.
+I still have needed to deploy a lot because some things (specifically CSS) don't just work the same way on my laptop and phone. Fortunately that hasn't been too much of a hustle, since with every push to GitHub, Netlify builds and deploys automatically, and that takes about 5 to 10 seconds.
 
 <br>
 <br>
 
-### About some challenges I encountered:
+### About some challenges I (have) encountered:
 - Finding a good name (still not sure)
-- KISSing (Keeping It Simple, Stupid) -- at the beginning, overthought my stack needs (tested out Firebase; thought too long if I should use Vue or *insert any other currently popular framework*, etc.)
-- Different (mobile) browsers acting up differently and responsive design in general (*OMG!*, that Safari margin bug that I debugged until 3pm)
-- Getting my head around async / await / modules, [script loading priorities](https://addyosmani.com/blog/script-priorities/) (not an expert on these, still lots to learn)
+- KISSing (Keeping It Simple, Stupid) – at the beginning, overthought my stack needs (tested out Firebase; thought too long if I should use Vue or *insert any other popular framework*, etc.)
+- Different (mobile) browsers acting up differently and responsive design in general (*OMG!*, that Safari margin bug that I debugged until 3pm, didn't appear on my laptop)
+- Getting my head around async / await / modules, [script loading priorities](https://addyosmani.com/blog/script-priorities/) (not good at all on these topics yet, still lots and lots to learn)
 - How to preload questions to avoid wait
 - How to design a good UI and smooth UX
-- Non-laggy animations
-- Focusing on what's the most important to the user, not nitpicking insignificant details
+- Non-laggy CSS animations
+- Focusing on what's the most important to the user, not nitpicking insignificant details (and implementing non-essential features)
 
-A good tool for me is taking a step back, using paper and pencil to sketch out stuff.
+A great tool that is working out for me: taking a step back, using paper and pencil to sketch out stuff.
 
 <br>
 <br>
@@ -110,6 +121,8 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 
 `q-putter.mjs` is a Node.js script (uses Node module `fs-extra`) that converts a `.tsv` file (downloaded from Google Sheets) into separate question files and a question count file (called `count`, to - well -, save the question count as a static asset). These files are pushed to GitHub folder "public/questions", **Netlify** saves them as static assets.
 
+_Note_: I wanted to try out Node.js (and the "everything can be written in JavaScript" adage), that's why `q-putter` is in Node. May rewrite in Python in the future, seems more logical and purer to me.
+
 <br>
 <br>
 
@@ -118,6 +131,7 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 - Data -> Data Cleanup -> Remove duplicates
 - To remove "107." from "107. What's your name?" when gathering questions from the interweebz: 
     CTRL F + regex `^\d+(\.|\,)\s+` (also works with commas, uneven spacing)
+- Max length for questions is approximately 78 chars. I use _Conditional Formatting_ `=LEN(A1)>78` to make cells of too long strings go orange.
 
 <br>
 <br>
@@ -134,7 +148,9 @@ A good tool for me is taking a step back, using paper and pencil to sketch out s
 [plsaskme.com]: <https://plsaskme.com>
 [askmepls.com]: <https://askmepls.com>
 [CS50x]: <https://cs50.harvard.edu/x/2021>
+[harpi.com]: <https://harpi.com>
 [ipregistry.co]: <https://ipregistry.co>
+[plausible.io]: <https://plausible.io>
 
 <br>
 <br>
