@@ -143,7 +143,9 @@
 
     let savedResult = "";
     let savedResult_langSpicy = "";
-
+    
+    /* TODO: rewrite this ugly mess. More details: http://callbackhell.com/ */
+    
     getLastQuestionIndex("et", false).then((result) => {
         lastIndex["et"] = result;
 
