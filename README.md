@@ -159,4 +159,4 @@ To update all questions at once: `find *.tsv -exec node q-putter.mjs {} \;`
 ## Future
 I've got some feature requests already, like seeing question history. Let's see.
 
-There's also some bugs to fix, including: swiping with multiple fingers on mobile (can reproduce); some users getting the same question multiple times (haven't been able to reproduce).
+There's also some bugs to fix, including: swiping with multiple fingers on mobile (can reproduce); some users getting the same question multiple times (haven't been able to reproduce). I also want to fix some spaghetti code/callback hell / structure JS better.
