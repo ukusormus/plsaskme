@@ -29,7 +29,7 @@ As simple as "swipe" for a new question ("click" for non-touch devices).
 
 #### Author:
 
-- Uku Sõrmus (GitHub username: 3xploit-hunt)
+- Uku Sõrmus ([GitHub](https://github.com/ukusormus))
 
 <br>
 
@@ -158,3 +158,5 @@ To update all questions at once: `find *.tsv -exec node q-putter.mjs {} \;`
 
 ## Future
 I've got some feature requests already, like seeing question history. Let's see.
+
+There's also some bugs to fix, including: swiping with multiple fingers on mobile (can reproduce); some users getting the same question multiple times (haven't been able to reproduce).
